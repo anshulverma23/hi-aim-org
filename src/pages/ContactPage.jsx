@@ -2,7 +2,11 @@ import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 
 const ContactPage = () => {
-  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
   const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (e) => {
@@ -24,7 +28,6 @@ const ContactPage = () => {
       <Navbar />
 
       <div className="animate-slide-up pt-36 pb-16 px-4 lg:px-8">
-        
         {/* Header */}
         <div className="text-center mb-16">
           <p className="text-sm uppercase tracking-widest text-yellow-600 font-semibold mb-3">
@@ -36,13 +39,13 @@ const ContactPage = () => {
           </h2>
 
           <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
-            Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
+            Have questions? We'd love to hear from you. Send us a message and
+            we'll respond as soon as possible.
           </p>
         </div>
 
         {/* Form */}
         <div className="max-w-2xl mx-auto">
-          
           {submitted && (
             <div className="mb-8 p-4 bg-green-50 border border-green-300 rounded-xl text-green-700">
               Thank you for your message! We'll get back to you soon.
@@ -50,11 +53,8 @@ const ContactPage = () => {
           )}
 
           <form onSubmit={handleSubmit} className="space-y-6">
-            
             <div className="bg-white border border-gray-200 rounded-2xl shadow-md p-6 lg:p-8">
-              
               <div className="space-y-6">
-                
                 <div>
                   <label className="block text-sm text-gray-700 font-medium mb-2">
                     Name
@@ -99,7 +99,6 @@ const ContactPage = () => {
                     className="w-full p-3 rounded-lg bg-white text-gray-900 placeholder-gray-400 border border-gray-300 focus:outline-none focus:border-yellow-500 focus:ring-1 focus:ring-yellow-400 transition resize-none"
                   ></textarea>
                 </div>
-
               </div>
             </div>
 
@@ -114,7 +113,6 @@ const ContactPage = () => {
 
           {/* Contact Info */}
           <div className="mt-12 grid md:grid-cols-3 gap-6 text-center">
-            
             <div className="bg-white border border-gray-200 rounded-2xl shadow-md p-6">
               <p className="text-yellow-600 text-sm uppercase tracking-widest mb-2">
                 Email
@@ -135,7 +133,6 @@ const ContactPage = () => {
               </p>
               <p className="text-gray-700">New York, USA</p>
             </div>
-
           </div>
         </div>
       </div>

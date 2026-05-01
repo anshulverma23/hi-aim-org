@@ -39,7 +39,6 @@ const Register = () => {
       <Navbar />
 
       <div className="animate-slide-up pt-36 pb-16 px-4 lg:px-8 bg-gray-50 min-h-screen">
-        
         {/* Header */}
         <div className="text-center mb-16">
           <p className="text-sm uppercase tracking-widest text-yellow-600 font-semibold mb-3">
@@ -51,23 +50,22 @@ const Register = () => {
           </h2>
 
           <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
-            Secure your spot at HI-AIM 2027. Complete the registration form below.
+            Secure your spot at HI-AIM 2027. Complete the registration form
+            below.
           </p>
         </div>
 
         {/* Form */}
         <div className="max-w-2xl mx-auto">
-          
           {submitted && (
             <div className="mb-8 p-4 bg-green-50 border border-green-300 rounded-xl text-green-700">
-              Registration successful! We'll send you a confirmation email shortly.
+              Registration successful! We'll send you a confirmation email
+              shortly.
             </div>
           )}
 
           <form onSubmit={handleSubmit} className="space-y-6">
-            
             <div className="bg-white border border-gray-200 rounded-2xl shadow-md p-6 lg:p-8">
-              
               {/* Name */}
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
@@ -168,7 +166,6 @@ const Register = () => {
                   <option value="other">Other</option>
                 </select>
               </div>
-
             </div>
 
             {/* Button */}
@@ -178,7 +175,6 @@ const Register = () => {
             >
               Complete Registration
             </button>
-
           </form>
         </div>
       </div>

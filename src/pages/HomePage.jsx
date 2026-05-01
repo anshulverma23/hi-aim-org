@@ -19,7 +19,7 @@ const HomePage = () => (
       <TestimonialsSection />
       <PartnersSection />
     </main>
-    <Footer />
+    <Footer />      
   </div>
 );
 

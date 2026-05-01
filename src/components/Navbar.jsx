@@ -4,18 +4,18 @@ import { HiMenu, HiX, HiChevronDown } from "react-icons/hi";
 
 const NAV_LINKS = [
   { label: "HOME", href: "/" },
-  { 
-    label: "ABOUT HI AIM", 
+  {
+    label: "ABOUT HI AIM",
     href: "#",
     dropdown: [
       { label: "Overview", href: "/about-overview.html" },
       { label: "About Us", href: "/about-us.html" },
       { label: "Terms & Conditions", href: "/terms-conditions.html" },
       { label: "Privacy Policy", href: "/privacy-policy.html" },
-    ]
+    ],
   },
-  { 
-    label: "HI AIM 2027", 
+  {
+    label: "HI AIM 2027",
     href: "#",
     dropdown: [
       { label: "Program", href: "/about-program.html" },
@@ -27,19 +27,19 @@ const NAV_LINKS = [
       { label: "Guidelines For Exhibitors", href: "/exhibitors-guidelines.html" },
       { label: "Registration T & C", href: "/registration-t-c.html" },
       { label: "Delegate Registration Form", href: "/booking-conference.html" },
-    ]
+    ],
   },
   { label: "GALLERY", href: "/gallery" },
-  { 
-    label: "NEWS", 
+  {
+    label: "NEWS",
     href: "#",
     dropdown: [
       { label: "Media Coverage", href: "/media-coverage.html" },
       { label: "Press Releases", href: "/news.html" },
-    ]
+    ],
   },
-  { 
-    label: "TESTIMONIALS", 
+  {
+    label: "TESTIMONIALS",
     href: "#",
     dropdown: [
       { label: "Testimonials - 2014", href: "/testimonials-2014.html" },
@@ -51,10 +51,10 @@ const NAV_LINKS = [
       { label: "Testimonials - 2023", href: "/testimonials-2023.html" },
       { label: "Testimonials - 2024", href: "/testimonials-2024.html" },
       { label: "Testimonials - 2025", href: "/testimonials-2025.html" },
-    ]
+    ],
   },
-  { 
-    label: "ARCHIVES", 
+  {
+    label: "ARCHIVES",
     href: "#",
     dropdown: [
       { label: "Hi Aim 2012", href: "/hiaim-2012.html" },
@@ -71,7 +71,7 @@ const NAV_LINKS = [
       { label: "Hi AiM 2024", href: "/hiaim-2024.html" },
       { label: "Hi AiM 2025", href: "/hiaim-2025.html" },
       { label: "Hi AiM 2026", href: "/hiaim-2026.html" },
-    ]
+    ],
   },
   { label: "CONTACT US", href: "/contact-us" },
 ];
@@ -80,166 +80,203 @@ const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [sticky, setSticky] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
-  const [mobileHeight, setMobileHeight] = useState(68);
+  const [navHeight, setNavHeight] = useState(68);
   const dropdownTimeout = useRef(null);
   const navRef = useRef(null);
   const location = useLocation();
 
+  // Track nav height for mobile drawer offset
   useEffect(() => {
     const updateHeight = () => {
-      if (navRef.current) {
-        setMobileHeight(navRef.current.offsetHeight);
-      }
+      if (navRef.current) setNavHeight(navRef.current.offsetHeight);
     };
     updateHeight();
     window.addEventListener("resize", updateHeight);
     return () => window.removeEventListener("resize", updateHeight);
   }, []);
 
+  // Sticky on scroll
   useEffect(() => {
-    const handleScroll = () => {
-      setSticky(window.scrollY > 40);
-    };
+    const handleScroll = () => setSticky(window.scrollY > 40);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Close on route change
   useEffect(() => {
     setMobileOpen(false);
     setActiveDropdown(null);
   }, [location]);
 
+  // Lock body scroll when mobile menu open
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
   }, [mobileOpen]);
 
+  // Desktop dropdown hover handlers
   const handleMouseEnter = (label) => {
     if (dropdownTimeout.current) clearTimeout(dropdownTimeout.current);
     setActiveDropdown(label);
   };
-
   const handleMouseLeave = () => {
-    dropdownTimeout.current = setTimeout(() => {
-      setActiveDropdown(null);
-    }, 150);
+    dropdownTimeout.current = setTimeout(() => setActiveDropdown(null), 150);
   };
 
-  const toggleMobileDropdown = (label, e) => {
-    e.preventDefault();
-    setActiveDropdown(activeDropdown === label ? null : label);
+  // Mobile dropdown toggle
+  const toggleMobileDropdown = (label) => {
+    setActiveDropdown((prev) => (prev === label ? null : label));
   };
 
   return (
-    <header
-      ref={navRef}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        sticky
-          ? "bg-white/95 shadow-sm py-1"
-          : "backdrop-blur-md bg-white/30 py-2"
-      }`}
-    >
-      <nav className="max-w-[1400px] mx-auto px-4 lg:px-8 flex justify-between items-center">
-        
-        {/* Logo */}
-        <Link to="/" className="text-2xl font-bold">
-          <img src="/logo.png" alt="logo" />
-        </Link>
+    <>
+      <header
+        ref={navRef}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all  duration-300 ${
+          sticky
+            ? "bg-white/95 backdrop-blur-sm shadow-sm py-1"
+            : "bg-white/20 backdrop-blur-md py-2"
+        }`}
+      >
+        <nav className="max-w-[1400px] mx-auto px-4 lg:px-8 h-18 flex justify-between items-center h-14">
 
-        {/* Desktop */}
-        <div className="hidden lg:flex items-center gap-2">
-          {NAV_LINKS.map((link) => (
-            <div
-              key={link.label}
-              onMouseEnter={() => handleMouseEnter(link.label)}
-              onMouseLeave={handleMouseLeave}
-              className="relative"
-            >
-              <a
-                href={link.href}
-                className={`px-4 py-2 rounded-md text-sm font-semibold transition-all flex items-center gap-1
-                ${
-                  link.label === "CONTACT US"
-                    ? "px-8 py-4 bg-gradient-to-r from-gold to-gold-dark text-brand-950 rounded-md font-sans font-bold text-lg tracking-wide shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:shadow-[0_0_30px_rgba(212,175,55,0.5)] transition-all duration-300 transform hover:-translate-y-1"
-                    : activeDropdown === link.label
-                    ? "text-yellow-600 bg-gray-100"
-                    : "text-gray-800 hover:text-yellow-600 hover:bg-gray-100"
-                }`}
-                onClick={(e) => link.dropdown && e.preventDefault()}
+          {/* Logo */}
+          <Link to="/" className="flex-shrink-0">
+            <img src="/logo.png" alt="HI-AIM Logo"  />
+          </Link>
+
+          {/* Desktop Nav */}
+          <div className="hidden lg:flex items-center gap-1">
+            {NAV_LINKS.map((link) => (
+              <div
+                key={link.label}
+                onMouseEnter={() => handleMouseEnter(link.label)}
+                onMouseLeave={handleMouseLeave}
+                className="relative"
               >
-                {link.label}
-                {link.dropdown && (
-                  <HiChevronDown
-                    className={`transition ${
-                      activeDropdown === link.label ? "rotate-180" : ""
+                {link.label === "CONTACT US" ? (
+                  <a
+                    href={link.href}
+                    className="ml-2 px-5 py-2.5 bg-gradient-to-r from-gold to-gold-dark text-brand-950 rounded-md font-bold text-xs tracking-widest uppercase shadow-[0_0_16px_rgba(212,175,55,0.25)] hover:shadow-[0_0_24px_rgba(212,175,55,0.45)] transition-all duration-300 hover:-translate-y-0.5"
+                  >
+                    Contact Us
+                  </a>
+                ) : (
+                  <a
+                    href={link.href}
+                    className={`px-3 py-2 rounded-md text-xs font-semibold tracking-wide transition-all flex items-center gap-1 ${
+                      activeDropdown === link.label
+                        ? "text-gold-dark bg-brand-50"
+                        : "text-brand-800 hover:text-gold-dark hover:bg-brand-50"
                     }`}
-                  />
+                    onClick={(e) => link.dropdown && e.preventDefault()}
+                  >
+                    {link.label}
+                    {link.dropdown && (
+                      <HiChevronDown
+                        className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                          activeDropdown === link.label ? "rotate-180" : ""
+                        }`}
+                      />
+                    )}
+                  </a>
                 )}
-              </a>
 
-              {/* Dropdown */}
-              {link.dropdown && activeDropdown === link.label && (
-                <div className="absolute top-full left-0 bg-white shadow-lg rounded-md mt-1 w-60">
-                  {link.dropdown.map((item) => (
-                    <a
-                      key={item.label}
-                      href={item.href}
-                      className="block px-4 py-2 hover:bg-gray-100"
-                    >
-                      {item.label}
-                    </a>
-                  ))}
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
+                {/* Desktop Dropdown */}
+                {link.dropdown && activeDropdown === link.label && (
+                  <div className="absolute top-full left-0 mt-1 w-56 bg-white border border-gray-100 shadow-xl rounded-xl overflow-hidden z-50">
+                    {link.dropdown.map((item) => (
+                      <a
+                        key={item.label}
+                        href={item.href}
+                        className="block px-4 py-2.5 text-sm text-brand-700 hover:bg-brand-50 hover:text-gold-dark transition-colors"
+                      >
+                        {item.label}
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
 
-        {/* Mobile Toggle */}
-        <button
-          className="lg:hidden"
-          onClick={() => setMobileOpen(!mobileOpen)}
-        >
-          {mobileOpen ? <HiX size={28} /> : <HiMenu size={28} />}
-        </button>
-      </nav>
+          {/* Mobile Hamburger */}
+          <button
+            className="lg:hidden p-2 rounded-md text-brand-900 hover:bg-brand-50 transition-colors"
+            onClick={() => setMobileOpen((v) => !v)}
+            aria-label={mobileOpen ? "Close menu" : "Open menu"}
+          >
+            {mobileOpen ? <HiX size={24} /> : <HiMenu size={24} />}
+          </button>
+        </nav>
+      </header>
 
-      {/* Mobile Menu */}
+      {/* Mobile Overlay backdrop */}
+      {mobileOpen && (
+        <div
+          className="fixed inset-0 z-40 bg-black/30 lg:hidden"
+          onClick={() => setMobileOpen(false)}
+        />
+      )}
+
+      {/* Mobile Drawer — slides in from RIGHT */}
       <div
-        className={`lg:hidden fixed right-0 top-0 h-full w-[300px] bg-white shadow-lg transition-transform ${
+        className={`fixed right-0 z-50 lg:hidden bg-white shadow-2xl transition-transform duration-300 ease-in-out flex flex-col ${
           mobileOpen ? "translate-x-0" : "translate-x-full"
         }`}
-        style={{ top: `${mobileHeight}px` }}
+        style={{
+          top: `${navHeight}px`,
+          height: `calc(100dvh - ${navHeight}px)`,
+          width: "300px",
+        }}
       >
-        <div className="p-4 flex flex-col gap-2">
+        {/* Scrollable content */}
+        <div className="flex-1 overflow-y-auto overscroll-contain p-4">
           {NAV_LINKS.map((link) => (
-            <div key={link.label}>
-              <div
-                className="flex justify-between items-center"
-                onClick={(e) =>
-                  link.dropdown && toggleMobileDropdown(link.label, e)
-                }
-              >
-                <a
-                  href={link.href}
-                  className={`block px-4 py-2 rounded-md font-semibold
-                  ${
-                    link.label === "CONTACT US"
-                      ? "px-8 py-4 bg-gradient-to-r from-gold to-gold-dark text-brand-950 rounded-md font-sans font-bold text-lg tracking-wide shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:shadow-[0_0_30px_rgba(212,175,55,0.5)] transition-all duration-300 transform hover:-translate-y-1"
-                      : "text-gray-800"
-                  }`}
-                >
-                  {link.label}
-                </a>
-                {link.dropdown && <HiChevronDown />}
+            <div key={link.label} className="border-b border-gray-10 last:border-0">
+              {/* Row */}
+              <div className="flex justify-between items-center">
+                {link.label === "CONTACT US" ? (
+                  <Link
+                    to={link.href}
+                    className="ml-2 px-5 py-2.5 bg-gradient-to-r from-gold to-gold-dark text-brand-950 rounded-md font-bold text-xs tracking-widest uppercase shadow-lg hover:-translate-y-0.5 transition-all"
+                  >
+                    Contact Us
+                  </Link>
+                ) : link.dropdown ? (
+                  <>
+                    <button
+                      className="flex-1 flex justify-between items-center py-3.5 px-2 text-sm font-semibold text-brand-800 text-left"
+                      onClick={() => toggleMobileDropdown(link.label)}
+                    >
+                      <span>{link.label}</span>
+                      <HiChevronDown
+                        className={`w-4 h-4 text-brand-400 transition-transform duration-200 flex-shrink-0 ${
+                          activeDropdown === link.label ? "rotate-180 text-gold-dark" : ""
+                        }`}
+                      />
+                    </button>
+                  </>
+                ) : (
+                  <a
+                    href={link.href}
+                    className="flex-1 py-3.5 px-2 text-sm font-semibold text-brand-800 block"
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    {link.label}
+                  </a>
+                )}
               </div>
 
+              {/* Mobile Sub-items */}
               {link.dropdown && activeDropdown === link.label && (
-                <div className="ml-4 mt-2 flex flex-col ">
+                <div className="mb-2 ml-3 flex flex-col border-l-2 border-gold/30 pl-3">
                   {link.dropdown.map((item) => (
                     <a
                       key={item.label}
                       href={item.href}
-                      className="py-2 text-sm text-gray-600"
+                      className="py-2 text-sm text-brand-600 hover:text-gold-dark transition-colors"
+                      onClick={() => setMobileOpen(false)}
                     >
                       {item.label}
                     </a>
@@ -250,7 +287,7 @@ const Navbar = () => {
           ))}
         </div>
       </div>
-    </header>
+    </>
   );
 };
 

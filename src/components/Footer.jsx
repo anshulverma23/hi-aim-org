@@ -9,7 +9,7 @@ const Footer = () => {
           {/* Brand Column */}
           <div className="lg:col-span-1">
             <Link to="/" className="inline-block mb-6">
-              <span className="text-3xl font-display font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-gold-light to-gold-dark">
+              <span className="text-3xl font-display font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-gold to-gold-dark">
                 HI-AIM
               </span>
             </Link>
@@ -63,7 +63,7 @@ const Footer = () => {
             &copy; {new Date().getFullYear()} Hi Aim Conference Pvt. Ltd. All rights reserved.
           </div>
           <div className="text-brand-400 font-sans font-light text-sm text-center md:text-right">
-            Designed and Developed by <a href="http://www.mind-source.com/" className="text-gold-light hover:text-white transition-colors hover:underline" target="_blank" rel="noopener noreferrer">Mind Source</a>
+            Designed and Developed by <a href="http://www.mind-source.com/" className="text-gold hover:text-white transition-colors hover:underline" target="_blank" rel="noopener noreferrer">Mind Source</a>
           </div>
         </div>
       </div>

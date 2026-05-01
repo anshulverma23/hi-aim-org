@@ -803,3 +803,31 @@ const Navbar = () => {
 };
 
 export default Navbar;
+\
+
+
+   <div style={{ textAlign: "center" }}>
+            <div className={`ha-fade ${isVisible ? "in" : ""} ha-d1`}>
+              <span className="ha-tag">
+                <span className="ha-tag-dot" />
+                About The Event
+              </span>
+            </div>
+
+            <h2 className={`ha-h2 ha-fade ${isVisible ? "in" : ""} ha-d2`}>
+              Who should <em>attend?</em>
+            </h2>
+
+            <div className={`ha-fade ${isVisible ? "in" : ""} ha-d2`}>
+              <div className="ha-rule">
+                <div className="ha-rule-line" />
+                <div className="ha-rule-diamond" />
+                <div className="ha-rule-line" />
+              </div>
+            </div>
+
+            <p className={`ha-body ha-fade ${isVisible ? "in" : ""} ha-d3`}>
+              HI-AIM brings together the brightest minds in hospitality — from seasoned
+              executives to emerging innovators — for two days of learning, connection, and growth.
+            </p>
+          </div>

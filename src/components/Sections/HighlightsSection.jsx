@@ -1,4 +1,3 @@
-
 import React from "react";
 import { HiOutlineArrowRight } from "react-icons/hi";
 
@@ -28,25 +27,41 @@ const HIGHLIGHTS = [
 
 const HighlightsSection = () => {
   return (
+    <>
+     
     <section id="highlights" className="py-24 bg-[#FAFAFA]">
-      <div className="max-w-7xl mx-auto px-6 lg:px-10">
 
+      <div className="absolute inset-0 -z-10">
+    <img
+      src="/experience-bg.jpg"
+      alt=""
+      className="w-full h-full object-cover opacity-20"
+    />
+  </div>
+     
+      
+      <div className="max-w-7xl mx-auto px-6 lg:px-10">
+        
         {/* Header */}
         <div className="mb-16 md:mb-24 flex flex-col md:flex-row md:items-end justify-between gap-8">
+          
           <div className="max-w-2xl">
+            
             <span className="text-gold-dark text-sm font-semibold tracking-widest uppercase">
               Why Attend
             </span>
 
             <h2 className="text-3xl md:text-5xl font-light text-gray-900 mt-4">
-              HI-AIM <span className="font-semibold text-brand-900">Highlights</span>
+              HI-AIM{" "}
+              <span className="font-semibold bg-clip-text text-transparent bg-gradient-to-r from-gold to-gold-dark">Highlights</span>
             </h2>
 
             <div className="w-12 h-0.5  bg-gold-dark  mt-6" />
           </div>
 
           <p className="text-shadow-brand-950 text-lg font-light max-w-md">
-            Experience five days of unparalleled networking, learning, and growth with industry pioneers.
+            Experience five days of unparalleled networking, learning, and
+            growth with industry pioneers.
           </p>
         </div>
 
@@ -80,13 +95,14 @@ const HighlightsSection = () => {
 
         {/* CTA */}
         <div className="mt-16 text-center">
-          <button className="inline-flex items-center gap-2 text-brand-900 hover:text-shadow-brand-950 font-medium tracking-wide uppercase text-sm transition-colors group">
+          <button className="px-7 py-3 bg-gradient-to-r from-gold to-gold-dark text-brand-950 rounded-md font-sans font-bold text-sm tracking-widest uppercase shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:shadow-[0_0_30px_rgba(212,175,55,0.5)] transition-all duration-300 hover:-translate-y-0.5">
             Explore All Highlights
-            <HiOutlineArrowRight className="group-hover:translate-x-1 transition-transform" />
+            
           </button>
         </div>
       </div>
     </section>
+    </>
   );
 };
 

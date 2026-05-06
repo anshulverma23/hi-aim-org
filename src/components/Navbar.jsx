@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import  { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { HiMenu, HiX, HiChevronDown } from "react-icons/hi";
 
@@ -107,7 +107,7 @@ const Navbar = () => {
     setMobileOpen(false);
     setActiveDropdown(null);
   }, [location]);
-
+ 
   // Lock body scroll when mobile menu open
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
@@ -157,17 +157,17 @@ const Navbar = () => {
                 {link.label === "CONTACT US" ? (
                   <a
                     href={link.href}
-                    className="ml-2 px-5 py-2.5 bg-gradient-to-r from-gold to-gold-dark text-brand-950 rounded-md font-bold text-xs tracking-widest uppercase shadow-[0_0_16px_rgba(212,175,55,0.25)] hover:shadow-[0_0_24px_rgba(212,175,55,0.45)] transition-all duration-300 hover:-translate-y-0.5"
+                    className="ml-2 px-5 whitespace-nowrap py-2.5 bg-gradient-to-r from-gold to-gold-dark text-brand-950 rounded-md font-bold text-xs tracking-widest uppercase shadow-[0_0_16px_rgba(212,175,55,0.25)] hover:shadow-[0_0_24px_rgba(212,175,55,0.45)] transition-all duration-300 hover:-translate-y-0.5"
                   >
                     Contact Us
                   </a>
                 ) : (
                   <a
                     href={link.href}
-                    className={`px-3 py-2 rounded-md text-xs font-semibold tracking-wide transition-all flex items-center gap-1 ${
+                    className={`px-3 py-2 rounded-md text-sm font-semibold tracking-wide transition-all flex items-center gap-1 ${
                       activeDropdown === link.label
                         ? "text-gold-dark bg-brand-50"
-                        : "text-brand-800 hover:text-gold-dark hover:bg-brand-50"
+                        : "text-brand-900 hover:text-gold-dark hover:bg-brand-50"
                     }`}
                     onClick={(e) => link.dropdown && e.preventDefault()}
                   >

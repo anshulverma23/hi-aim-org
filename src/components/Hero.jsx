@@ -1,13 +1,14 @@
-import React from "react";
 import { Link } from "react-router-dom";
-import HeroImage from "../assets/hero.png";
+import { ScrollReveal } from "./UI/ScrollReveal";
 
 const Hero = () => {
   return (
     <section className="relative min-h-[100vh] flex items-center justify-center pt-24 pb-16 px-4 lg:px-8 overflow-hidden bg-white">
       {/* Background Effect */}
       <div className="absolute inset-0 z-0">
+        
         <div className="absolute inset-0  from-[rgba(15,23,42,0.8)] via-[rgba(15,23,42,0.6)] to-brand-950 z-10" />
+        
         <video
           src="/cover-video.mp4"
           autoPlay
@@ -23,26 +24,26 @@ const Hero = () => {
         />
       </div>
 
-      <div className="relative z-20 max-w-6xl mx-auto w-full flex flex-col items-center text-center animate-slide-up">
+      <ScrollReveal direction="up" delay={0.2} className="relative z-20 max-w-6xl mx-auto w-full flex flex-col items-center text-center animate-slide-up">
         {/* Eyebrow Label */}
-        <div className="inline-block mb-6 px-5 py-2 rounded-full border border-[rgba(212,175,55,0.4)] bg-[rgba(212,175,55,0.1)] backdrop-blur-sm text-gold-light text-xs md:text-sm font-semibold tracking-widest uppercase">
+        <div className="inline-block mb-6 px-5 py-2 rounded-full border border-[rgba(212,175,55,0.4)] bg-[rgba(212,175,55,0.1)] backdrop-blur-sm text-white text-xs md:text-sm font-semibold tracking-widest uppercase">
           A Premier Hospitality Event
         </div>
 
         {/* Main Heading */}
-        <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-extrabold text-white mb-6 leading-[1.15] tracking-tight drop-shadow-xl">
+        <h1 className="text-5xl drop-shadow-black md:text-6xl lg:text-7xl font-display font-extrabold text-white mb-6 leading-[1.15] tracking-tight drop-shadow-xl">
           HI-AIM{" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-light to-gold-dark">
-            2027
+            2026 
           </span>
           <br />
-          <span className="text-3xl md:text-5xl lg:text-6xl font-serif italic font-medium text-brand-100 mt-2 block">
+          <span className="text-3xl drop-shadow-black md:text-5xl lg:text-6xl font-serif italic font-medium text-white mt-2 block">
             Panel Discussion
           </span>
         </h1>
 
         {/* Subheading */}
-        <p className="max-w-3xl mx-auto text-lg md:text-xl lg:text-2xl text-brand-200 mb-10 font-sans font-light leading-relaxed">
+        <p className="max-w-3xl drop-shadow-xl drop-shadow-black mx-auto text-lg md:text-xl lg:text-2xl text-white mb-10 font-sans font-light leading-relaxed">
           A unique platform for hospitality industry leaders, entrepreneurs, and
           professionals to connect, share, and grow together.
         </p>
@@ -57,8 +58,8 @@ const Hero = () => {
           </Link>
           <Link
             to="/register"
-            className="px-8 py-4 border border-[rgba(99,129,168,0.5)] relative 
-  backdrop-blur-md bg-white/20
+            className="px-8 drop-shadow-black drop-shadow-xl py-4 border border-[rgba(99,129,168,0.5)] relative 
+  backdrop-blur-md bg-[#ffffff4f]
   text-white rounded-md font-sans font-bold text-lg tracking-wide
   hover:bg-[rgba(255,255,255,0.15)]
   hover:border-[rgba(99,129,168,0.2)]
@@ -70,7 +71,7 @@ const Hero = () => {
             Register
           </Link>
         </div>
-      </div>
+      </ScrollReveal>
 
       {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 animate-bounce hidden md:block opacity-80 hover:opacity-100 transition-opacity">

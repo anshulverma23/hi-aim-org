@@ -1,0 +1,117 @@
+
+import {
+  HiOutlineSparkles,
+  HiOutlineStar,
+  HiOutlineBadgeCheck,
+  HiOutlineUserGroup,
+  HiOutlinePresentationChartBar,
+  HiOutlineOfficeBuilding,
+  HiOutlineMail,
+} from "react-icons/hi";
+import { ScrollReveal, StaggerContainer, StaggerItem } from "../UI/ScrollReveal";
+
+const TIERS = [
+  {
+    title: "Title Sponsor",
+    icon: HiOutlineSparkles,
+    color: "text-gold",
+    bg: "bg-brand-50",
+    border: "border-brand-200",
+  },
+  {
+    title: "Patron Sponsor",
+    icon: HiOutlineStar,
+    color: "text-gold",
+    bg: "bg-brand-50",
+    border: "border-brand-200",
+  },
+  {
+    title: "Platinum Sponsor",
+    icon: HiOutlineBadgeCheck,
+    color: "text-gold",
+    bg: "bg-brand-50",
+    border: "border-brand-200",
+    image: "/pidilite.png",
+  },
+  {
+    title: "Gold Sponsors",
+    icon: HiOutlineUserGroup,
+    color: "text-gold",
+    bg: "bg-brand-50",
+    border: "border-brand-200",
+  },
+  {
+    title: "Associate Sponsors",
+    icon: HiOutlinePresentationChartBar,
+    color: "text-gold",
+    bg: "bg-brand-50",
+    border: "border-brand-200",
+  },
+  {
+    title: "Exhibitors",
+    icon: HiOutlineOfficeBuilding,
+    color: "text-gold",
+    bg: "bg-brand-50",
+    border: "border-brand-200",
+  },
+  {
+    title: "Hi Tea Sponsor",
+    icon: HiOutlineMail,
+    color: "text-gold",
+    bg: "bg-brand-50",
+    border: "border-brand-200",
+  },
+];  
+
+const PartnersSection = () => {
+  return (
+    <section id="partners" className="relative overflow-hidden bg-[#f8f8f8] border-t border-gray-100 py-28 lg:py-32">
+       <div className="hidden md:block absolute left-1/2 -translate-x-1/2 -top-20 text-transparent [-webkit-text-stroke:1px_#F0F0F0] text-[19rem] font-bold" >Sponsors</div>
+      <div className="pointer-events-none absolute left-0 top-0 h-80 w-80 rounded-full" />
+      <div className="pointer-events-none absolute right-0 bottom-20 h-96 w-96 rounded-full bg-brand-900/10 blur-3xl" />
+      <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-10">
+        <ScrollReveal direction="up" className="text-center max-w-2xl mx-auto mb-16">
+                  <span className="text-gold-dark text-sm font-semibold tracking-widest uppercase">
+                    Our Partners  
+                  </span>
+        
+                  <h2 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-light text-gray-900">
+                    HI-AIM{" "}
+                    <span className="font-bold bg-clip-text text-transparent bg-gradient-to-r from-gold to-gold-dark">
+                      Sponsors
+                    </span>
+                  </h2>
+        
+                  <div className="mx-auto mt-6 h-0.5 w-16 bg-gold-dark" />
+                </ScrollReveal>
+
+        <StaggerContainer className="flex mt-28 flex-wrap gap-4 justify-center items-center">
+          {TIERS.map((tier, idx) => {
+            const Icon = tier.icon;
+            return (
+              <StaggerItem key={idx} className="h-full">
+                <div
+                  className="group h-full  min-w-[250px] rounded-3xl bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg"
+                >
+                  <div className="flex h-14 w-14 items-center justify-center rounded-3xl bg-brand-50 text-brand-900 shadow-sm mb-5">
+                    <Icon className={`h-7 w-7 ${tier.color}`} />
+                  </div>
+                  <h3 className="text-lg font-semibold text-brand-950 mb-3">
+                    {tier.title}
+                  </h3>
+                  
+                  <p className="text-brand-500 text-sm leading-relaxed">
+                    
+                    Coming soon...
+                  </p>
+                </div>
+              </StaggerItem>
+            );
+          })}
+        </StaggerContainer>
+      </div>
+    </section>
+  );
+};
+
+export default PartnersSection;

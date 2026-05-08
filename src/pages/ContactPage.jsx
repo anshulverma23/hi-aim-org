@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Navbar from "../components/Navbar";
 import { ScrollReveal, StaggerContainer, StaggerItem } from "../components/UI/ScrollReveal";
 

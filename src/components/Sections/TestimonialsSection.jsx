@@ -1,12 +1,10 @@
-
-
 const testimonials = [
   {
     name: "Mr. K. B. Kachru",
     title: "Chairman Emeritus & Principal Advisor (South Asia) ",
     company: "Radisson Hotel Group",
     feedback:
-      "I have been a regular one at attending Hi-Aims and from the very inception, I am one of those fortunate ones who has attended all the Hi-AiMs.",
+      "I have been a regular one at attending Hi-Aims and from the very inception, I am one of those fortunate ones who has attended all the Hi-AiMs. Hi AiM has thought of collecting people who actually make the bones of the hospitality industry and how they recognise and interact with each other to make constructive contributions to the industry. The panel discussions are very meaningful and I was very glad to hear that whatever was decided, discussed, deliberated and different stakeholders were told to take action, I believe about 80 to 85% of that has actually been accepted by the industry and it is a big thing. The same thing has happened this year.",
     image: "/k-b-kachru.jpg",
   },
   {
@@ -14,7 +12,7 @@ const testimonials = [
     title: "Managing Director",
     company: "Sarovar Hotels",
     feedback:
-      "I think there is something special about Hi AiM, it’s not the biggest, it doesn’t have the largest attendance, it doesn’t boast of some perhaps very fancy names, but there is a very nice character to Hi-Aim. ",
+      "I think there is something special about Hi AiM, it’s not the biggest, it doesn’t have the largest attendance, it doesn’t boast of some perhaps very fancy names, but there is a very nice character to Hi-Aim. There is a certain feeling of community, a very close-knit group, a very informal group. It is not really highly structured or scientific in terms of timing, etc. But I see, and this is something I noticed before and something I’ve noticed a lot this time that people are enjoying each other’s company. They are learning from each other and sharing information under a very relaxed environment. It’s a good, close community of designers, architects, hoteliers, and consultants. I would give it full marks.",
     image: "/ajay-bakaya.jpg",
   },
   {
@@ -22,15 +20,14 @@ const testimonials = [
     title: "Regional Vice President",
     company: "Marriott International",
     feedback:
-      "I have been attending this conference every year and look forward to it. It provides a platform to owners, operators and a lot of technical consultants to come together and discuss the projects we are working on.",
+      "I have been attending this conference every year and look forward to it. It provides a platform to owners, operators and a lot of technical consultants to come together and discuss the projects we are working on. Marriott has been supporting the conference, and we will continue doing so. The panel discussions were really interesting, especially the panel discussion on project cost and construction cost and also the discussion on millennials.",
     image: "/kiran-andikot.jpg",
   },
   {
     name: "Ms. Charu Singh",
     title: "President",
     company: "TFCI",
-    feedback:
-      "TFCI has been participating in Hi AiM since its inception and we are very proud to be associated with Hi AiM. Well, I think it's a very well-thought-out two days sessions that were kept. The way the leaders from the market have shared the emerging trends, their thoughts about how the future can be made, it was definitely a wonderful experience and I look forward to the 12th edition as well.",
+    feedback:"TFCI has been participating in Hi AiM since its inception and we are very proud to be associated with Hi AiM. Well, I think it's a very well-thought-out two days sessions that were kept. The way the leaders from the market have shared the emerging trends, their thoughts about how the future can be made, it was definitely a wonderful experience and I look forward to the 12th edition as well.",
     image: "/charu-singh.jpg",
   },
   {
@@ -111,36 +108,40 @@ export default function TestimonialsSection() {
   const duplicatedTestimonials = [...testimonials, ...testimonials];
 
   return (
-    <section className="py-24 lg:py-32 bg-gradient-to-b from-white to-[#f8f8f8] overflow-hidden relative">
-      <div className="absolute left-24 -top-12 text-transparent [-webkit-text-stroke:2px_#F0F0F0] text-[19rem] font-bold">
+    <section className="py-14 md:py-24 lg:py-32 bg-gradient-to-b from-white to-[#f8f8f8] overflow-hidden relative">
+      
+      {/* Background Text */}
+      <div className="hidden md:block absolute left-10 lg:left-24 -top-6 lg:top-8 text-transparent [-webkit-text-stroke:2px_#F0F0F0] text-[8rem] lg:text-[19rem] font-bold leading-none pointer-events-none select-none">
         Voices
       </div>
 
-      {/* Top fade */}
-      <div className="absolute top-0 left-0 w-full h-12 bg-gradient-to-b from-white to-transparent pointer-events-none" />
+      {/* Top Fade */}
+      <div className="absolute top-0 left-0 w-full h-10 md:h-12 bg-gradient-to-b from-white to-transparent pointer-events-none" />
 
-      {/* Bottom fade (next section hint) */}
-      <div className="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-white/70 to-transparent pointer-events-none" />
+      {/* Bottom Fade */}
+      <div className="absolute bottom-0 left-0 w-full h-12 md:h-16 bg-gradient-to-t from-white/70 to-transparent pointer-events-none" />
 
       {/* Header */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-10 relative z-10 mb-16 lg:mb-20">
-        <div className="flex flex-col md:flex-row justify-between items-end gap-6">
-          <div className="max-w-2xl">
-            <span className="text-gold-dark text-sm font-semibold tracking-widest uppercase">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 relative z-10 mb-10 md:mb-16 lg:mb-20">
+        
+        <div className="flex flex-col md:flex-row justify-between md:items-end gap-6">
+          
+          <div className="max-w-2xl text-center md:text-left">
+            <span className="text-gold-dark text-xs sm:text-sm font-semibold tracking-[0.25em] uppercase">
               Words from Leaders
             </span>
 
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 mt-4 tracking-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 mt-3 md:mt-4 tracking-tight leading-tight">
               Industry{" "}
               <span className="font-semibold bg-clip-text text-transparent bg-gradient-to-r from-gold to-gold-dark">
                 Voices
               </span>
             </h2>
 
-            <div className="w-12 h-0.5 bg-gold-dark mt-6" />
+            <div className="w-10 md:w-12 h-0.5 bg-gold-dark mt-4 md:mt-6 mx-auto md:mx-0" />
           </div>
 
-          <p className="text-gray-600 font-light max-w-sm text-base leading-relaxed md:text-right">
+          <p className="text-gray-600 font-light max-w-sm text-sm md:text-base leading-relaxed text-center md:text-right">
             Hear what the most respected names in global hospitality have to say
             about their Hi-Aim experience.
           </p>
@@ -148,35 +149,41 @@ export default function TestimonialsSection() {
       </div>
 
       {/* Marquee */}
-      <div className="relative flex overflow-hidden group py-4">
-        {/* Fade edges */}
-        <div className="absolute left-0 top-0 bottom-0 w-24 md:w-48 bg-gradient-to-r from-[#f8f8f8] to-transparent z-20 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-24 md:w-48 bg-gradient-to-l from-[#f8f8f8] to-transparent z-20 pointer-events-none" />
+      <div className="relative flex overflow-hidden group py-2 md:py-4">
+        
+        {/* Left Fade */}
+        <div className="absolute left-0 top-0 bottom-0 w-10 sm:w-16 md:w-48 bg-gradient-to-r from-[#f8f8f8] to-transparent z-20 pointer-events-none" />
 
-        <div className="flex space-x-6 md:space-x-8 animate-marquee pl-6 md:pl-8">
+        {/* Right Fade */}
+        <div className="absolute right-0 top-0 bottom-0 w-10 sm:w-16 md:w-48 bg-gradient-to-l from-[#f8f8f8] to-transparent z-20 pointer-events-none" />
+
+        <div className="flex space-x-4 md:space-x-8 animate-marquee pl-4 md:pl-8">
+          
           {duplicatedTestimonials.map((t, i) => (
             <div
               key={i}
-              className="w-[320px] md:w-[400px] flex-shrink-0 bg-white border border-gray-200 hover:border-gold/40 rounded-2xl p-8 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between shadow-sm hover:shadow-lg"
+              className="w-[280px] sm:w-[320px] md:w-[400px] flex-shrink-0 bg-white border border-gray-200 hover:border-gold/40 rounded-2xl p-5 sm:p-6 md:p-8 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between shadow-sm hover:shadow-lg"
             >
+              
               {/* Quote */}
               <div>
                 <svg
-                  className="w-9 h-9 text-gold mb-5"
+                  className="w-7 h-7 md:w-9 md:h-9 text-gold mb-4 md:mb-5"
                   fill="currentColor"
                   viewBox="0 0 32 32"
                 >
                   <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
                 </svg>
 
-                <p className="text-gray-600 font-light text-base leading-relaxed mb-8 line-clamp-4">
+                <p className="text-gray-600 font-light text-sm md:text-base leading-relaxed mb-6 md:mb-8 line-clamp-5">
                   "{t.feedback}"
                 </p>
               </div>
 
               {/* Author */}
-              <div className="flex items-center gap-4 border-t border-gray-200 pt-6">
-                <div className="min-w-24 h-24  rounded-full overflow-hidden bg-gray-100 ring-2 ring-gold/30">
+              <div className="flex items-center gap-3 md:gap-4 border-t border-gray-200 pt-4 md:pt-6">
+                
+                <div className="min-w-16 w-16 h-16 md:min-w-24 md:w-24 md:h-24 rounded-full overflow-hidden bg-gray-100 ring-2 ring-gold/30">
                   <img
                     src={t.image}
                     alt={t.name}
@@ -185,11 +192,11 @@ export default function TestimonialsSection() {
                 </div>
 
                 <div>
-                  <h4 className="font-semibold text-gray-900 text-sm">
+                  <h4 className="font-semibold text-gray-900 text-sm md:text-base leading-tight">
                     {t.name}
                   </h4>
 
-                  <p className="text-gray-500 text-xs mt-0.5">
+                  <p className="text-gray-500 text-[11px] md:text-xs mt-1 leading-relaxed">
                     {t.title},{" "}
                     <span className="text-gold-dark font-medium">
                       {t.company}
@@ -205,18 +212,31 @@ export default function TestimonialsSection() {
       {/* Animation */}
       <style>{`
         @keyframes marquee {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(calc(-50% - 12px)); }
-        }
-        @media (min-width: 768px) {
-          @keyframes marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(calc(-50% - 16px)); }
+          0% {
+            transform: translateX(0);
+          }
+
+          100% {
+            transform: translateX(calc(-50% - 8px));
           }
         }
+
+        @media (min-width: 768px) {
+          @keyframes marquee {
+            0% {
+              transform: translateX(0);
+            }
+
+            100% {
+              transform: translateX(calc(-50% - 16px));
+            }
+          }
+        }
+
         .animate-marquee {
           animation: marquee 35s linear infinite;
         }
+
         .animate-marquee:hover {
           animation-play-state: paused;
         }

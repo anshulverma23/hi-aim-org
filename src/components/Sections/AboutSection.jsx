@@ -12,10 +12,10 @@ const features = [
 const AboutSection = () => {
   return (
     <section id="about" className="relative overflow-hidden py-28 lg:py-32 border-t border-gray-100 bg-[#f8f8f8]">
-      <div className="absolute left-20 top-12 text-transparent [-webkit-text-stroke:2px_#f0f0f0] text-[19rem] font-bold" >About</div>
+      <div className="absolute hidden md:block left-20 top-12 text-transparent [-webkit-text-stroke:2px_#f0f0f0] text-[19rem] font-bold" >About</div>
 
       {/* Background Blurs */}
-     
+      
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-6">
         <div className="grid gap-12 lg:grid-cols-[1.05fr_0.95fr] items-center">

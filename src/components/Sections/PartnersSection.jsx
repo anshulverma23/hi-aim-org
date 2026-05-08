@@ -20,6 +20,7 @@ const TIERS = [
     color: "text-gold",
     bg: "bg-brand-50",
     border: "border-brand-200",
+    image: "/asianpaints.png",
   },
   {
     title: "Patron Sponsor",
@@ -27,6 +28,7 @@ const TIERS = [
     color: "text-gold",
     bg: "bg-brand-50",
     border: "border-brand-200",
+    image: "/aruba.png",
   },
   {
     title: "Platinum Sponsor",
@@ -66,6 +68,7 @@ const TIERS = [
     color: "text-gold",
     bg: "bg-brand-50",
     border: "border-brand-200",
+    image: "/eco.png",
   },
 ];
 
@@ -92,7 +95,7 @@ const PartnersSection = () => {
           <h2 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-light text-gray-900">
             HI-AIM{" "}
             <span className="font-bold bg-clip-text text-transparent bg-gradient-to-r from-gold to-gold-dark">
-              Sponsors
+              Sponsors 
             </span>
           </h2>
 
@@ -109,7 +112,7 @@ const PartnersSection = () => {
                     alt={tier.title}
                     className="mx-auto h-40 w-40 object-contain "
                   />
-                  <h3 className="text-lg font-semibold text-brand-950 mb-3">
+                  <h3 className="text-md text-center font-semibold text-brand-950 mb-3">
                     {tier.title}
                   </h3>
                 </div>

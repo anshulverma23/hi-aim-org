@@ -112,7 +112,7 @@ const PartnersSection = () => {
                     alt={tier.title}
                     className="mx-auto h-40 w-40 object-contain "
                   />
-                  <h3 className="text-md text-center font-semibold text-brand-950 mb-3">
+                  <h3 className="text-md text-center text-brand-950 mb-3">
                     {tier.title}
                   </h3>
                 </div>

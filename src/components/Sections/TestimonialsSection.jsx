@@ -1,3 +1,5 @@
+import { ScrollReveal } from "../UI/ScrollReveal";
+
 const testimonials = [
   {
     name: "Mr. K. B. Kachru",
@@ -102,6 +104,22 @@ const testimonials = [
       "It was extremely good. In fact, I’m glad that I made the decision to come. I am also equally thankful to Hi AiM Team for having invited me here as a speaker. It’s really good because so many people from different facets of the industry are here and you get to hear perspectives from different people you know and from different sectors. It’s really educative.",
     image: "/sunil-khemani.jpg",
   },
+  {
+    name: "Mr. Amit Gupta",
+    title: "Founding Partner",
+    company: "Studio Symbiosis",
+    feedback: 
+    "I have to say this experience is a little bit better than the earlier ones. Because usually when we have Hi AiM in Delhi, which I have attended a couple of times, everyone comes and goes because of the busy schedule, but being in Kathmandu, everyone is here for a longer period of time, so we get to spend more time informally with them, not just in the conference but also outside the conference, so I think it’s a much more relaxed and a bit more productive Hi AiM than the earlier ones.",
+    image: "/amit-gupta.jpg"
+  },
+  {
+    name: "Ms. Vandana Saxena",
+    title: "Design Principal",
+    company: "Studio IV Designs, vandana",
+    feedback:
+    "It was interesting to meet all my industry colleagues, not just from India but from Nepal as well, and I also saw a lot of people coming from Singapore and Hong Kong. Hi AiM was very engaging and a great learning experience as well. I’m a designer, and it was good to see the work of fellow designers, to see the perspective of the brand owners and to also see, you know, where the industry is heading or what the future trends are going to be.",
+    image: "/vandana-saxena.jpg",
+  }
 ];
 
 export default function TestimonialsSection() {
@@ -111,7 +129,7 @@ export default function TestimonialsSection() {
     <section className="py-14 md:py-24 lg:py-32 bg-gradient-to-b from-white to-[#f8f8f8] overflow-hidden relative">
       
       {/* Background Text */}
-      <div className="hidden md:block absolute left-10 lg:left-24 -top-6 lg:top-8 text-transparent [-webkit-text-stroke:2px_#F0F0F0] text-[8rem] lg:text-[19rem] font-bold leading-none pointer-events-none select-none">
+      <div className="hidden md:block absolute left-10 lg:left-24 -top-6 lg:top-8 text-transparent [-webkit-text-stroke:2px_#F0F0F0] text-[8rem] text-[19rem] lg:text-[16rem] font-bold leading-none pointer-events-none select-none">
         Voices
       </div>
 
@@ -122,7 +140,7 @@ export default function TestimonialsSection() {
       <div className="absolute bottom-0 left-0 w-full h-12 md:h-16 bg-gradient-to-t from-white/70 to-transparent pointer-events-none" />
 
       {/* Header */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 relative z-10 mb-10 md:mb-16 lg:mb-20">
+      <ScrollReveal className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 relative z-10 mb-10 md:mb-16 lg:mb-20">
         
         <div className="flex flex-col md:flex-row justify-between md:items-end gap-6">
           
@@ -138,18 +156,18 @@ export default function TestimonialsSection() {
               </span>
             </h2>
 
-            <div className="w-10 md:w-12 h-0.5 bg-gold-dark mt-4 md:mt-6 mx-auto md:mx-0" />
+            <div className="mx-auto mt-4 sm:mt-6 h-0.5 w-12 sm:w-16 bg-gold-dark" />
           </div>
 
-          <p className="text-gray-600 font-light max-w-sm text-sm md:text-base leading-relaxed text-center md:text-right">
-            Hear what the most respected names in global hospitality have to say
-            about their Hi-Aim experience.
+          <p className="max-w-xl text-brand-600 text-lg leading-relaxed mb-8">
+            Hear what the most respected names <br /> in global hospitality have to say
+            about their <br /> Hi-Aim experience.
           </p>
         </div>
-      </div>
+      </ScrollReveal>
 
       {/* Marquee */}
-      <div className="relative flex overflow-hidden group py-2 md:py-4">
+      <ScrollReveal className="relative flex overflow-hidden group py-2 md:py-4">
         
         {/* Left Fade */}
         <div className="absolute left-0 top-0 bottom-0 w-10 sm:w-16 md:w-48 bg-gradient-to-r from-[#f8f8f8] to-transparent z-20 pointer-events-none" />
@@ -207,7 +225,7 @@ export default function TestimonialsSection() {
             </div>
           ))}
         </div>
-      </div>
+      </ScrollReveal>
 
       {/* Animation */}
       <style>{`

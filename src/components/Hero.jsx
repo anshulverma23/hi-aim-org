@@ -6,7 +6,6 @@ const Hero = () => {
     <section className="relative min-h-[100vh] flex items-center justify-center pt-24 pb-16 px-4 lg:px-8 overflow-hidden bg-white">
       {/* Background Effect */}
       <div className="absolute inset-0 z-0">
-        
         <div className="absolute inset-0  from-[rgba(15,23,42,0.8)] via-[rgba(15,23,42,0.6)] to-brand-950 z-10" />
         
         <video
@@ -14,8 +13,11 @@ const Hero = () => {
           autoPlay
           loop
           muted
-          className="w-full h-full object-cover object-center  scale-105 transition-transform duration-[20s] hover:scale-100"
-        ></video>
+          className="w-full h-full object-cover object-center scale-105 transition-transform duration-[20s] hover:scale-100"
+        >
+        </video>
+         <div className="absolute inset-0 bg-black/60"></div>
+       
         {/* Subtle glowing orbs for luxury feel */}
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[rgba(212,175,55,0.1)] rounded-full blur-[100px] animate-pulse" />
         <div

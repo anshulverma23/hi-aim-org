@@ -12,7 +12,7 @@ const features = [
 const AboutSection = () => {
   return (
     <section id="about" className="relative overflow-hidden py-28 lg:py-32 border-t border-gray-100 bg-[#f8f8f8]">
-      <div className="absolute hidden md:block left-20 top-12 text-transparent [-webkit-text-stroke:2px_#f0f0f0] text-[19rem] font-bold" >About</div>
+      <div className="absolute hidden md:block left-20 top-12 text-transparent [-webkit-text-stroke:2px_#ececec] text-[19rem] font-bold" >About</div>
 
       {/* Background Blurs */}
       

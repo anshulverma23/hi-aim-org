@@ -21,7 +21,7 @@ const reasons = [
   },
   {
     icon: HiOutlinePresentationChartBar,
-    title: "Hi AiM 2027",
+    title: "Hi AiM 2026",
     desc: "Sponsors & Venue",
     image: "/33.jpg",
   },
@@ -32,7 +32,7 @@ const WhyShouldAttend = () => {
     <section className="relative overflow-hidden border-t border-gray-100 bg-[#f8f8f8] py-28 lg:py-32">
       
       {/* Background blur effects */}
-      <div className="absolute hidden md:block left-1/2 -translate-x-1/2 -top-16 text-transparent [-webkit-text-stroke:2px_#F0F0F0] text-[19rem] font-bold" >Highlights</div>
+      <div className="absolute hidden md:block left-1/2 -translate-x-1/2 -top-8 text-transparent [-webkit-text-stroke:2px_#ececec] text-[19rem] lg:text-[16rem] font-bold" >Highlights</div>
       <div className="pointer-events-none absolute right-0 bottom-20 h-96 w-96 rounded-full bg-brand-900/10 blur-3xl" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
@@ -52,7 +52,7 @@ const WhyShouldAttend = () => {
 
           <div className="mx-auto mt-6 h-0.5 w-16 rounded-full bg-gold-dark" />
 
-          <p className="mx-auto mt-6 max-w-2xl text-brand-600 font-light text-base sm:text-lg leading-relaxed">
+          <p className="max-w-xl text-brand-600 text-lg leading-relaxed ml-10 mt-8">
             Explore the premier hospitality gathering for industry leaders, innovators, and decision-makers seeking strategic growth.
           </p>
         </ScrollReveal>

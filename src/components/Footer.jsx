@@ -3,7 +3,7 @@ import { ScrollReveal, StaggerContainer, StaggerItem } from "./UI/ScrollReveal";
 
 const Footer = () => {
   return (
-    <footer className="bg-brand-950 text-white border-t border-brand-800 pt-10 md:pt-20 pb-6 md:pb-8 mt-12 md:mt-20 overflow-hidden">
+    <footer className="bg-brand-950 text-white border-t border-brand-800 pt-10 md:pt-20 pb-6 md:pb-8  overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-10 mb-8 md:mb-16">

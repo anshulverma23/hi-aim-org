@@ -1,4 +1,4 @@
-import  { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { HiMenu, HiX, HiChevronDown } from "react-icons/hi";
 
@@ -18,15 +18,21 @@ const NAV_LINKS = [
     label: "HI AIM 2027",
     href: "#",
     dropdown: [
-      { label: "Program", href: "/about-program.html" },
+      { label: "Program", href: "/program" },
       { label: "Venue", href: "/host-hotel.html" },
-      { label: "Speakers", href: "/speakers.html" },
+      { label: "Speakers", href: "/speakers" },
       { label: "Exhibitors Profiles", href: "/exhibitor-profile.html" },
       { label: "Sponsorship Details", href: "/sponsors.html" },
       { label: "Exposition Layout", href: "/exposition-layout.html" },
-      { label: "Guidelines For Exhibitors", href: "/exhibitors-guidelines.html" },
+      {
+        label: "Guidelines For Exhibitors",
+        href: "/exhibitors-guidelines.html",
+      },
       { label: "Registration T & C", href: "/registration-t-c.html" },
-      { label: "Delegate Registration Form", href: "/booking-conference.html" },
+      {
+        label: "Delegate Registration Form",
+        href: "/booking-conference.html",
+      },
     ],
   },
   { label: "GALLERY", href: "/gallery" },
@@ -81,49 +87,73 @@ const Navbar = () => {
   const [sticky, setSticky] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [navHeight, setNavHeight] = useState(68);
+
   const dropdownTimeout = useRef(null);
   const navRef = useRef(null);
+
   const location = useLocation();
 
-  // Track nav height for mobile drawer offset
+  // Track nav height
   useEffect(() => {
     const updateHeight = () => {
-      if (navRef.current) setNavHeight(navRef.current.offsetHeight);
+      if (navRef.current) {
+        setNavHeight(navRef.current.offsetHeight);
+      }
     };
+
     updateHeight();
+
     window.addEventListener("resize", updateHeight);
-    return () => window.removeEventListener("resize", updateHeight);
+
+    return () => {
+      window.removeEventListener("resize", updateHeight);
+    };
   }, []);
 
-  // Sticky on scroll
+  // Sticky Navbar
   useEffect(() => {
-    const handleScroll = () => setSticky(window.scrollY > 40);
+    const handleScroll = () => {
+      setSticky(window.scrollY > 40);
+    };
+
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
-  // Close on route change
+  // Close menu on route change
   useEffect(() => {
     setMobileOpen(false);
     setActiveDropdown(null);
   }, [location]);
- 
-  // Lock body scroll when mobile menu open
+
+  // Lock body scroll
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [mobileOpen]);
 
-  // Desktop dropdown hover handlers
+  // Desktop dropdown
   const handleMouseEnter = (label) => {
-    if (dropdownTimeout.current) clearTimeout(dropdownTimeout.current);
+    if (dropdownTimeout.current) {
+      clearTimeout(dropdownTimeout.current);
+    }
+
     setActiveDropdown(label);
   };
+
   const handleMouseLeave = () => {
-    dropdownTimeout.current = setTimeout(() => setActiveDropdown(null), 150);
+    dropdownTimeout.current = setTimeout(() => {
+      setActiveDropdown(null);
+    }, 150);
   };
 
-  // Mobile dropdown toggle
+  // Mobile dropdown
   const toggleMobileDropdown = (label) => {
     setActiveDropdown((prev) => (prev === label ? null : label));
   };
@@ -132,46 +162,46 @@ const Navbar = () => {
     <>
       <header
         ref={navRef}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all  duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           sticky
-            ? "bg-white/95 backdrop-blur-sm shadow-sm py-1"
-            : "bg-white/20 backdrop-blur-md py-2"
+            ? "bg-white/95 backdrop-blur-sm shadow-sm py-4"
+            : "bg-white/70 backdrop-blur-md py-6"
         }`}
       >
-        <nav className="max-w-[1400px] mx-auto px-4 lg:px-8 h-18 flex justify-between items-center h-14">
-
+        <nav className="max-w-[1400px] mx-auto px-4 lg:px-8 flex justify-between items-center h-14">
           {/* Logo */}
           <Link to="/" className="flex-shrink-0">
-            <img src="/logo.png" alt="HI-AIM Logo"  />
+            <img src="/logo.png" alt="HI-AIM Logo" />
           </Link>
 
-          {/* Desktop Nav */}
+          {/* Desktop Menu */}
           <div className="hidden lg:flex items-center gap-1">
             {NAV_LINKS.map((link) => (
               <div
                 key={link.label}
+                className="relative"
                 onMouseEnter={() => handleMouseEnter(link.label)}
                 onMouseLeave={handleMouseLeave}
-                className="relative"
               >
                 {link.label === "CONTACT US" ? (
-                  <a
-                    href={link.href}
-                    className="ml-2 px-5 whitespace-nowrap py-2.5 bg-gradient-to-r from-gold to-gold-dark text-brand-950 rounded-md font-bold text-xs tracking-widest uppercase shadow-[0_0_16px_rgba(212,175,55,0.25)] hover:shadow-[0_0_24px_rgba(212,175,55,0.45)] transition-all duration-300 hover:-translate-y-0.5"
+                  <Link
+                    to={link.href}
+                    className="ml-2 px-5 whitespace-nowrap py-2.5 bg-gradient-to-r from-gold to-gold-dark text-black rounded-md font-bold text-[0.85rem] tracking-widest uppercase shadow-[0_0_16px_rgba(212,175,55,0.25)] hover:shadow-[0_0_24px_rgba(212,175,55,0.45)] transition-all duration-300 hover:-translate-y-0.5"
                   >
                     Contact Us
-                  </a>
+                  </Link>
                 ) : (
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.href}
+                    onClick={(e) => link.dropdown && e.preventDefault()}
                     className={`px-3 py-2 rounded-md text-sm font-semibold tracking-wide transition-all flex items-center gap-1 ${
                       activeDropdown === link.label
-                        ? "text-gold-dark bg-brand-50"
-                        : "text-brand-900 hover:text-gold-dark hover:bg-brand-50"
+                        ? "text-gold-dark text-[1rem] bg-brand-50"
+                        : "text-black text-[1rem] hover:text-gold-dark hover:bg-brand-50"
                     }`}
-                    onClick={(e) => link.dropdown && e.preventDefault()}
                   >
                     {link.label}
+
                     {link.dropdown && (
                       <HiChevronDown
                         className={`w-3.5 h-3.5 transition-transform duration-200 ${
@@ -179,20 +209,20 @@ const Navbar = () => {
                         }`}
                       />
                     )}
-                  </a>
+                  </Link>
                 )}
 
                 {/* Desktop Dropdown */}
                 {link.dropdown && activeDropdown === link.label && (
                   <div className="absolute top-full left-0 mt-1 w-56 bg-white border border-gray-100 shadow-xl rounded-xl overflow-hidden z-50">
                     {link.dropdown.map((item) => (
-                      <a
+                      <Link
                         key={item.label}
-                        href={item.href}
+                        to={item.href}
                         className="block px-4 py-2.5 text-sm text-brand-700 hover:bg-brand-50 hover:text-gold-dark transition-colors"
                       >
                         {item.label}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 )}
@@ -200,7 +230,7 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* Mobile Hamburger */}
+          {/* Mobile Button */}
           <button
             className="lg:hidden p-2 rounded-md text-brand-900 hover:bg-brand-50 transition-colors"
             onClick={() => setMobileOpen((v) => !v)}
@@ -211,7 +241,7 @@ const Navbar = () => {
         </nav>
       </header>
 
-      {/* Mobile Overlay backdrop */}
+      {/* Overlay */}
       {mobileOpen && (
         <div
           className="fixed inset-0 z-40 bg-black/30 lg:hidden"
@@ -219,7 +249,7 @@ const Navbar = () => {
         />
       )}
 
-      {/* Mobile Drawer — slides in from RIGHT */}
+      {/* Mobile Drawer */}
       <div
         className={`fixed right-0 z-50 lg:hidden bg-white shadow-2xl transition-transform duration-300 ease-in-out flex flex-col ${
           mobileOpen ? "translate-x-0" : "translate-x-full"
@@ -230,11 +260,12 @@ const Navbar = () => {
           width: "300px",
         }}
       >
-        {/* Scrollable content */}
         <div className="flex-1 overflow-y-auto overscroll-contain p-4">
           {NAV_LINKS.map((link) => (
-            <div key={link.label} className="border-b border-gray-10 last:border-0">
-              {/* Row */}
+            <div
+              key={link.label}
+              className="border-b border-gray-100 last:border-0"
+            >
               <div className="flex justify-between items-center">
                 {link.label === "CONTACT US" ? (
                   <Link
@@ -244,42 +275,43 @@ const Navbar = () => {
                     Contact Us
                   </Link>
                 ) : link.dropdown ? (
-                  <>
-                    <button
-                      className="flex-1 flex justify-between items-center py-3.5 px-2 text-sm font-semibold text-brand-800 text-left"
-                      onClick={() => toggleMobileDropdown(link.label)}
-                    >
-                      <span>{link.label}</span>
-                      <HiChevronDown
-                        className={`w-4 h-4 text-brand-400 transition-transform duration-200 flex-shrink-0 ${
-                          activeDropdown === link.label ? "rotate-180 text-gold-dark" : ""
-                        }`}
-                      />
-                    </button>
-                  </>
+                  <button
+                    className="flex-1 flex justify-between items-center py-3.5 px-2 text-sm font-semibold text-brand-800 text-left"
+                    onClick={() => toggleMobileDropdown(link.label)}
+                  >
+                    <span>{link.label}</span>
+
+                    <HiChevronDown
+                      className={`w-4 h-4 text-brand-400 transition-transform duration-200 flex-shrink-0 ${
+                        activeDropdown === link.label
+                          ? "rotate-180 text-gold-dark"
+                          : ""
+                      }`}
+                    />
+                  </button>
                 ) : (
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.href}
                     className="flex-1 py-3.5 px-2 text-sm font-semibold text-brand-800 block"
                     onClick={() => setMobileOpen(false)}
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 )}
               </div>
 
-              {/* Mobile Sub-items */}
+              {/* Mobile Dropdown */}
               {link.dropdown && activeDropdown === link.label && (
                 <div className="mb-2 ml-3 flex flex-col border-l-2 border-gold/30 pl-3">
                   {link.dropdown.map((item) => (
-                    <a
+                    <Link
                       key={item.label}
-                      href={item.href}
+                      to={item.href}
                       className="py-2 text-sm text-brand-600 hover:text-gold-dark transition-colors"
                       onClick={() => setMobileOpen(false)}
                     >
                       {item.label}
-                    </a>
+                    </Link>
                   ))}
                 </div>
               )}

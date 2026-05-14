@@ -1,833 +1,588 @@
-import React from "react";
+import {
+  HiOutlineSparkles,
+  HiOutlineStar,
+  HiOutlineBadgeCheck,
+  HiOutlineUserGroup,
+  HiOutlinePresentationChartBar,
+  HiOutlineOfficeBuilding,
+  HiOutlineMail,
+} from "react-icons/hi";
+import {
+  ScrollReveal,
+  StaggerContainer,
+  StaggerItem,
+} from "../UI/ScrollReveal";
 
-const Register = () => {
+const TIERS = [
+  {
+    title: "Title Sponsor",
+    icon: HiOutlineSparkles,
+    color: "text-gold",
+    bg: "bg-brand-50",
+    border: "border-brand-200",
+    image: "/asianpaints.png",
+  },
+  {
+    title: "Patron Sponsor",
+    icon: HiOutlineStar,
+    color: "text-gold",
+    bg: "bg-brand-50",
+    border: "border-brand-200",
+    image: "/aruba.png",
+  },
+  {
+    title: "Platinum Sponsor",
+    icon: HiOutlineBadgeCheck,
+    color: "text-gold",
+    bg: "bg-brand-50",
+    border: "border-brand-200",
+    image: "/pidilite.png",
+  },
+  {
+    title: "Gold Sponsors",
+    icon: HiOutlineUserGroup,
+    color: "text-gold",
+    bg: "bg-brand-50",
+    border: "border-brand-200",
+    image: "/schuco.png",
+  },
+  {
+    title: "Associate Sponsors",
+    icon: HiOutlinePresentationChartBar,
+    color: "text-gold",
+    bg: "bg-brand-50",
+    border: "border-brand-200",
+    image: "/hyatt.png",
+  },
+  {
+    title: "Exhibitors",
+    icon: HiOutlineOfficeBuilding,
+    color: "text-gold",
+    bg: "bg-brand-50",
+    border: "border-brand-200",
+    image: "/shk.png",
+  },
+  {
+    title: "Hi Tea Sponsor",
+    icon: HiOutlineMail,
+    color: "text-gold",
+    bg: "bg-brand-50",
+    border: "border-brand-200",
+    image: "/eco.png",
+  },
+];
+
+const PartnersSection = () => {
   return (
-    <div
-      className="relative flex min-h-screen items-center justify-center bg-white min-h-screen flex flex-col,transparent_38%),linear-gradient(180deg,#f7f7f5_0%,#efefed_100%)] bg-cover bg-center px-4 pt-24"
-     
+    <section
+      id="partners"
+      className="relative overflow-hidden bg-[#f8f8f8] border-t border-gray-100 py-28 lg:py-32"
     >
-      <div className="premium-card relative z-10 w-full max-w-md rounded-3xl p-8 text-zinc-900">
-        <p className="text-xs uppercase tracking-[0.32em] text-zinc-600">HI AIM 2027</p>
-        <h2 className="mt-3 text-4xl text-blue-900">Register</h2>
-        <p className="mt-2 text-sm text-zinc-600">Enter your details to access your conference dashboard.</p>
-
-        <div className="mt-6 flex gap-3">
-          <button className="flex-1 rounded-full border border-black/20 py-2 text-sm hover:bg-black/5">Google</button>
-          <button className="flex-1 rounded-full border border-black/20 py-2 text-sm hover:bg-black/5">Facebook</button>
-        </div>
-
-        <div className="my-5 flex items-center gap-3">
-          <div className="h-px flex-1 bg-black/10" />
-          <span className="text-xs text-zinc-500">or continue with email</span>
-          <div className="h-px flex-1 bg-black/10" />
-        </div>
-
-        <label className="text-sm">Email</label>
-        <input
-          type="email"
-          placeholder="Enter your email"
-          className="mt-1 w-full rounded-xl border border-black/20 bg-white px-4 py-2.5 text-sm placeholder:text-zinc-500 focus:border-zinc-900 focus:outline-none"
-        />
-
-        <label className="mt-4 block text-sm">Password</label>
-        <input
-          type="password"
-          placeholder="Enter Password"
-          className="mt-1 w-full rounded-xl border border-black/20 bg-white px-4 py-2.5 text-sm placeholder:text-zinc-500 focus:border-zinc-900 focus:outline-none"
-        />
-
-        <div className="mt-3 text-right">
-          <a href="#" className="text-xs text-zinc-700 hover:underline">
-            Forgot Password?
-          </a>
-        </div>
-
-        <button className="mt-6 w-full rounded-full  bg-gradient-to-r from-gold to-gold-dark py-2.5 text-sm font-semibold uppercase tracking-[0.16em] text-white transition hover:bg-zinc-700">
-          Login
-        </button>
-
-        <p className="mt-5 text-center text-sm text-zinc-600">
-          New here? <span className="cursor-pointer  hover:underline">Create account</span>
-        </p>
+      <div className="hidden md:block absolute left-1/2 -translate-x-1/2 -top-20 text-transparent [-webkit-text-stroke:2px_#F0F0F0] text-[19rem] font-bold">
+        Sponsors
       </div>
-    </div>
-  );
-};
-
-export default Register;
-
-
-
-
-
-import React, { useState } from "react";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-
-const ContactPage = () => {
-  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (formData.name && formData.email && formData.message) {
-      setSubmitted(true);
-      setFormData({ name: "", email: "", message: "" });
-      setTimeout(() => setSubmitted(false), 3000);
-    }
-  };
-
-  return (
-    <div className="bg-white min-h-screen flex flex-col">
-      <Navbar />
-      <main className="flex-1 py-28 px-4 max-w-2xl mx-auto w-full">
-        <div className="animate-slide-up">
-          <h1 className="text-3xl md:text-4xl font-bold text-blue-900 mb-2">Contact Us</h1>
-          <p className="text-gray-600 mb-8">Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
-          
-          {submitted && (
-            <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg text-green-800">
-              Thank you for your message! We'll get back to you soon.
-            </div>
-          )}
-
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div>
-              <label className="block text-gray-700 font-medium mb-2" htmlFor="name">Name</label>
-              <input 
-                id="name" 
-                name="name" 
-                type="text" 
-                value={formData.name}
-                onChange={handleChange}
-                required 
-                className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition"
-                placeholder="Your name"
-              />
-            </div>
-            <div>
-              <label className="block text-gray-700 font-medium mb-2" htmlFor="email">Email</label>
-              <input 
-                id="email" 
-                name="email" 
-                type="email" 
-                value={formData.email}
-                onChange={handleChange}
-                required 
-                className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition"
-                placeholder="your.email@example.com"
-              />
-            </div>
-            <div>
-              <label className="block text-gray-700 font-medium mb-2" htmlFor="message">Message</label>
-              <textarea 
-                id="message" 
-                name="message" 
-                rows="6" 
-                value={formData.message}
-                onChange={handleChange}
-                required 
-                className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition resize-none"
-                placeholder="Your message here..."
-              ></textarea>
-            </div>
-            <button 
-              type="submit" 
-              className="w-full bg-gradient-to-r from-gold to-gold-dark text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-800 transition duration-300 transform hover:scale-105 shadow-md"
-            >
-              Send Message
-            </button>
-          </form>
-        </div>
-      </main>
-      <Footer />
-    </div>
-  );
-};
-
-export default ContactPage;
-
- <span className="bg-clip-text text-transparent bg-gradient-to-r from-brand-900 to-brand-600 transition-all duration-300 group-hover:to-gold-dark">
-            HI-AIM
+      <div className="pointer-events-none absolute left-0 top-0 h-80 w-80 rounded-full" />
+      <div className="pointer-events-none absolute right-0 bottom-20 h-96 w-96 rounded-full bg-brand-900/10 blur-3xl" />
+      <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-10">
+        <ScrollReveal
+          direction="up"
+          className="text-center max-w-2xl mx-auto mb-16"
+        >
+          <span className="text-gold-dark text-sm font-semibold tracking-widest uppercase">
+            Our Partners
           </span>
-
-          <div class="relative h-full w-full bg-slate-950"><div class="absolute bottom-0 left-0 right-0 top-0 bg-[radial-gradient(circle_500px_at_50%_200px,#3e3e3e,transparent)]"></div></div>
-          <div class="relative h-full w-full bg-slate-950"><div class="absolute bottom-0 left-0 right-0 top-0 bg-[radial-gradient(circle_500px_at_50%_200px,#3e3e3e,transparent)]"></div></div>
-
-
-
-          import React, { useState, useEffect, useRef } from "react";
-import { Link, useLocation } from "react-router-dom";
-import { HiMenu, HiX, HiChevronDown } from "react-icons/hi";
-
-const NAV_LINKS = [
-  { label: "HOME", href: "/" },
-  { 
-    label: "ABOUT HI AIM", 
-    href: "#",
-    dropdown: [
-      { label: "Overview", href: "/about-overview.html" },
-      { label: "About Us", href: "/about-us.html" },
-      { label: "Terms & Conditions", href: "/terms-conditions.html" },
-      { label: "Privacy Policy", href: "/privacy-policy.html" },
-    ]
-  },
-  { 
-    label: "HI AIM 2027", 
-    href: "#",
-    dropdown: [
-      { label: "Program", href: "/about-program.html" },
-      { label: "Venue", href: "/host-hotel.html" },
-      { label: "Speakers", href: "/speakers.html" },
-      { label: "Exhibitors Profiles", href: "/exhibitor-profile.html" },
-      { label: "Sponsorship Details", href: "/sponsors.html" },
-      { label: "Exposition Layout", href: "/exposition-layout.html" },
-      { label: "Guidelines For Exhibitors", href: "/exhibitors-guidelines.html" },
-      { label: "Registration T & C", href: "/registration-t-c.html" },
-      { label: "Delegate Registration Form", href: "/booking-conference.html" },
-    ]
-  },
-  { label: "GALLERY", href: "/gallery" },
-  { 
-    label: "NEWS", 
-    href: "#",
-    dropdown: [
-      { label: "Media Coverage", href: "/media-coverage.html" },
-      { label: "Press Releases", href: "/news.html" },
-    ]
-  },
-  { 
-    label: "TESTIMONIALS", 
-    href: "#",
-    dropdown: [
-      { label: "Testimonials - 2014", href: "/testimonials-2014.html" },
-      { label: "Testimonials - 2015", href: "/testimonials-2015.html" },
-      { label: "Testimonials - 2016", href: "/testimonials-2016.html" },
-      { label: "Testimonials - 2017", href: "/testimonials.html" },
-      { label: "Testimonials - 2019", href: "/testimonials-2019.html" },
-      { label: "Testimonials - 2022", href: "/testimonials-2022.html" },
-      { label: "Testimonials - 2023", href: "/testimonials-2023.html" },
-      { label: "Testimonials - 2024", href: "/testimonials-2024.html" },
-      { label: "Testimonials - 2025", href: "/testimonials-2025.html" },
-    ]
-  },
-  { 
-    label: "ARCHIVES", 
-    href: "#",
-    dropdown: [
-      { label: "Hi Aim 2012", href: "/hiaim-2012.html" },
-      { label: "Hi Aim 2013", href: "/hiaim-2013.html" },
-      { label: "Hi Aim 2014", href: "/hiaim-2014.html" },
-      { label: "Hi Aim 2015", href: "/hiaim-2015.html" },
-      { label: "Hi Aim 2016", href: "/hiaim-2016.html" },
-      { label: "Hi Aim 2017", href: "/hiaim-2017.html" },
-      { label: "Hi Aim 2018", href: "/hiaim-2018.html" },
-      { label: "Hi Aim 2019", href: "/hiaim-2019.html" },
-      { label: "Hi Aim 2020", href: "/hiaim-2020.html" },
-      { label: "Hi Aim 2022", href: "/hiaim-2022.html" },
-      { label: "Hi AiM 2023", href: "/hiaim-2023.html" },
-      { label: "Hi AiM 2024", href: "/hiaim-2024.html" },
-      { label: "Hi AiM 2025", href: "/hiaim-2025.html" },
-      { label: "Hi AiM 2026", href: "/hiaim-2026.html" },
-    ]
-  },
-  { label: "CONTACT US", href: "/contact-us" },
-];
-
-const Navbar = () => {
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const [sticky, setSticky] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState(null);
-  const dropdownTimeout = useRef(null);
-  const location = useLocation();
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setSticky(window.scrollY > 40);
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  // Close mobile menu on route change
-  useEffect(() => {
-    setMobileOpen(false);
-    setActiveDropdown(null);
-  }, [location]);
-
-  // Prevent scroll when mobile menu is open
-  useEffect(() => {
-    if (mobileOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [mobileOpen]);
-
-  const handleMouseEnter = (label) => {
-    if (dropdownTimeout.current) clearTimeout(dropdownTimeout.current);
-    setActiveDropdown(label);
-  };
-
-  const handleMouseLeave = () => {
-    dropdownTimeout.current = setTimeout(() => {
-      setActiveDropdown(null);
-    }, 150);
-  };
-
-  const toggleMobileDropdown = (label, e) => {
-    e.preventDefault();
-    setActiveDropdown(activeDropdown === label ? null : label);
-  };
-
-  return (
-    <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out border-b ${
-        sticky 
-          ? " bg-[rgba(255,255,255,0.95)]  border-transparent shadow-sm " 
-          : "glass backdrop-blur-md bg-white/30 py-1 border-brand-200 shadow-md"
-      }`}
-    >
-      <nav className="max-w-[1400px] mx-auto px-4 lg:px-8 flex items-center justify-between">
-        {/* Logo */}
-        <Link 
-          to="/" 
-          className="text-2xl md:text-3xl font-display font-extrabold tracking-tight text-brand-900 shrink-0 flex items-center gap-2 group"
-          aria-label="Hi-Aim Homepage"
-        >
-         <img src="/logo.png" alt="" />
-        </Link>
-
-        {/* Desktop Navigation */}
-        <div className="hidden lg:flex items-center gap-1 xl:gap-2">
-          {NAV_LINKS.map((link) => (
-            <div 
-              key={link.label} 
-              className="relative group"
-              onMouseEnter={() => handleMouseEnter(link.label)}
-              onMouseLeave={handleMouseLeave}
-            >
-              <a
-                href={link.href}
-                className={`flex items-center gap-1 px-3 xl:px-4 py-2 font-sans text-sm xl:text-[15px] font-semibold tracking-wide transition-all duration-200 rounded-md
-                  ${activeDropdown === link.label ? "text-gold-dark bg-brand-50" : "text-brand-800 hover:text-gold-dark hover:bg-brand-50"}
-                `}
-                onClick={(e) => link.dropdown && e.preventDefault()}
-                aria-haspopup={link.dropdown ? "true" : "false"}
-                aria-expanded={activeDropdown === link.label}
-              >
-                {link.label}
-                {link.dropdown && (
-                  <HiChevronDown 
-                    className={`w-4 h-4 transition-transform duration-300 ${
-                      activeDropdown === link.label ? "-rotate-180 text-gold-dark" : "text-brand-400 group-hover:text-gold-dark"
-                    }`} 
-                  />
-                )}
-              </a>
-
-              {/* Desktop Dropdown */}
-              {link.dropdown && (
-                <div 
-                  className={`absolute top-full left-0 mt-1 min-w-[260px] bg-white border border-brand-100 rounded-lg shadow-xl overflow-hidden transition-all duration-300 origin-top-left
-                    ${activeDropdown === link.label 
-                      ? "opacity-100 translate-y-0 visible pointer-events-auto" 
-                      : "opacity-0 -translate-y-2 invisible pointer-events-none"
-                    }
-                  `}
-                >
-                  <div className="py-2 flex flex-col">
-                    {link.dropdown.map((sublink) => (
-                      <a
-                        key={sublink.label}
-                        href={sublink.href}
-                        className="px-5 py-2.5 text-[14px] font-sans font-medium text-brand-700 hover:text-brand-900 hover:bg-brand-50 hover:pl-6 transition-all duration-200 border-l-2 border-transparent hover:border-gold"
-                      >
-                        {sublink.label}
-                      </a>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
-
-        {/* Mobile Menu Toggle */}
-        <button
-          className="lg:hidden p-2 -mr-2 text-brand-900 hover:text-gold-dark hover:bg-brand-50 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-brand-200"
-          onClick={() => setMobileOpen(!mobileOpen)}
-          aria-expanded={mobileOpen}
-          aria-label="Toggle mobile menu"
-        >
-          {mobileOpen ? <HiX className="w-7 h-7" /> : <HiMenu className="w-7 h-7" />}
-        </button>
-      </nav>
-
-      {/* Mobile Menu Overlay */}
-      <div 
-        className={`lg:hidden fixed inset-0 top-[68px] bg-[rgba(15,23,42,0.4)] backdrop-blur-sm z-40 transition-opacity duration-300 ${
-          mobileOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
-        }`}
-        onClick={() => setMobileOpen(false)}
-        aria-hidden="true"
-      />
-
-      {/* Mobile Menu Panel */}
-      <div
-        className={`lg:hidden fixed inset-y-0 right-0 top-[68px] w-full max-w-sm bg-white z-50 overflow-y-auto shadow-2xl transition-transform duration-300 ease-in-out border-l border-brand-100 ${
-          mobileOpen ? "translate-x-0" : "translate-x-full"
-        }`}
-      >
-        <div className="flex flex-col py-6 px-6 gap-1 pb-24">
-          {NAV_LINKS.map((link) => (
-            <div key={link.label} className="border-b border-brand-50 last:border-0 pb-1 mb-1">
-              <div 
-                className="flex justify-between items-center py-3 cursor-pointer group"
-                onClick={(e) => link.dropdown ? toggleMobileDropdown(link.label, e) : null}
-              >
-                <a
-                  href={link.href}
-                  className={`font-sans text-base font-bold tracking-wide transition-colors flex-1
-                    ${link.dropdown && activeDropdown === link.label ? "text-gold-dark" : "text-brand-800 group-hover:text-gold-dark"}
-                  `}
-                  onClick={(e) => {
-                    if (link.dropdown) {
-                      e.preventDefault();
-                    } else {
-                      setMobileOpen(false);
-                    }
-                  }}
-                >
-                  {link.label}
-                </a>
-                {link.dropdown && (
-                  <button 
-                    className="p-2 ml-2 rounded-full bg-brand-50 text-brand-600 hover:text-gold-dark hover:bg-brand-100 transition-colors focus:outline-none"
-                    aria-label={`Toggle ${link.label} submenu`}
-                  >
-                    <HiChevronDown 
-                      className={`w-5 h-5 transition-transform duration-300 ${
-                        activeDropdown === link.label ? "-rotate-180 text-gold-dark" : ""
-                      }`} 
-                    />
-                  </button>
-                )}
-              </div>
-              
-              {/* Mobile Submenu */}
-              {link.dropdown && (
-                <div 
-                  className={`flex flex-col pl-4 border-l-2 border-[rgba(212,175,55,0.3)] ml-2 overflow-hidden transition-all duration-300 ease-in-out ${
-                    activeDropdown === link.label ? "max-h-[1200px] opacity-100 py-2 mb-2" : "max-h-0 opacity-0"
-                  }`}
-                >
-                  {link.dropdown.map((sublink) => (
-                    <a
-                      key={sublink.label}
-                      href={sublink.href}
-                      className="py-2.5 text-[15px] font-medium text-brand-600 hover:text-brand-900 transition-colors"
-                      onClick={() => setMobileOpen(false)}
-                    >
-                      {sublink.label}
-                    </a>
-                  ))}
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
-      </div>
-    </header>
-  );
-};
-
-export default Navbar;
-
-
-import React from "react";
-import { HiOutlineArrowRight } from "react-icons/hi";
-
-const HIGHLIGHTS = [
-  {
-    title: "Panel discussions with industry leaders",
-    desc: "Insightful sessions featuring hospitality industry experts sharing their wisdom and vision for the future of the industry.",
-  },
-  {
-    title: "Networking opportunities with professionals",
-    desc: "Build valuable connections with industry peers from around the globe through our curated networking sessions.",
-  },
-  {
-    title: "Exposition of latest products and services",
-    desc: "Discover cutting-edge innovations in hospitality technology and services from leading exhibitors worldwide.",
-  },
-  {
-    title: "Knowledge sharing and learning sessions",
-    desc: "Gain valuable insights and best practices from industry pioneers through interactive workshops.",
-  },
-  {
-    title: "Exclusive insights into hospitality trends",
-    desc: "Stay updated on the latest industry developments, emerging trends, and future outlook with expert analysis.",
-    colSpan: true,
-  },
-];
-
-const HighlightsSection = () => {
-  return (
-    <section id="highlights" className="py-24 bg-[#FAFAFA]">
-      <div className="max-w-7xl mx-auto px-6 lg:px-10">
-
-        {/* Header */}
-        <div className="mb-16 md:mb-24 flex flex-col md:flex-row md:items-end justify-between gap-8">
-          <div className="max-w-2xl">
-            <span className="text-gray-400 text-sm font-semibold tracking-widest uppercase">
-              Why Attend
+  
+          <h2 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-light text-gray-900">
+            HI-AIM{" "}
+            <span className="font-bold bg-clip-text text-transparent bg-gradient-to-r from-gold to-gold-dark">
+              Sponsors 
             </span>
+          </h2>
 
-            <h2 className="text-3xl md:text-5xl font-light text-gray-900 mt-4">
-              HI-AIM <span className="font-semibold text-brand-900">Highlights</span>
-            </h2>
+          <div className="mx-auto mt-6 h-0.5 w-16 bg-gold-dark" />
+        </ScrollReveal>
 
-            <div className="w-12 h-0.5 bg-brand-900 mt-6" />
-          </div>
-
-          <p className="text-gray-500 text-lg font-light max-w-md">
-            Experience five days of unparalleled networking, learning, and growth with industry pioneers.
-          </p>
-        </div>
-
-        {/* Grid */}
-        <div className="grid md:grid-cols-2 gap-6">
-          {HIGHLIGHTS.map((item, index) => (
-            <div
-              key={index}
-              className={`group p-8 border border-gray-200 hover:border-brand-300 bg-white hover:bg-gray-50 transition-all duration-300 rounded-xl shadow-sm hover:shadow-md cursor-pointer ${
-                item.colSpan ? "md:col-span-2 md:w-2/3 md:mx-auto" : ""
-              }`}
-            >
-              <div className="flex items-start gap-4">
-                <span className="text-brand-400 text-xl font-light opacity-60 mt-1">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-
-                <div>
-                  <h4 className="text-xl font-medium text-gray-900 mb-3 group-hover:text-brand-900 transition-colors">
-                    {item.title}
-                  </h4>
-
-                  <p className="text-gray-500 font-light leading-relaxed">
-                    {item.desc}
-                  </p>
+        <StaggerContainer className="flex mt-28 flex-wrap gap-4 justify-center items-center">
+          {TIERS.map((tier, idx) => {
+            return (
+              <StaggerItem key={idx} className="h-full">
+                <div className="group h-full  min-w-[250px] rounded-3xl bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg">
+                  <img
+                    src={tier.image}
+                    alt={tier.title}
+                    className="mx-auto h-40 w-40 object-contain "
+                  />
+                  <h3 className="text-md text-center text-brand-950 mb-3">
+                    {tier.title}
+                  </h3>
                 </div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* CTA */}
-        <div className="mt-16 text-center">
-          <button className="inline-flex items-center gap-2 text-brand-900 hover:text-brand-700 font-medium tracking-wide uppercase text-sm transition-colors group">
-            Explore All Highlights
-            <HiOutlineArrowRight className="group-hover:translate-x-1 transition-transform" />
-          </button>
-        </div>
+              </StaggerItem>
+            );
+          })}
+        </StaggerContainer>
       </div>
     </section>
   );
 };
 
-export default HighlightsSection;
+export default PartnersSection;
 
-import React, { useState, useEffect, useRef } from "react";
-import { Link, useLocation } from "react-router-dom";
-import { HiMenu, HiX, HiChevronDown } from "react-icons/hi";
 
-const NAV_LINKS = [
-  { label: "HOME", href: "/" },
-  { 
-    label: "ABOUT HI AIM", 
-    href: "#",
-    dropdown: [
-      { label: "Overview", href: "/about-overview.html" },
-      { label: "About Us", href: "/about-us.html" },
-      { label: "Terms & Conditions", href: "/terms-conditions.html" },
-      { label: "Privacy Policy", href: "/privacy-policy.html" },
-    ]
+
+import {
+  HiOutlineSparkles,
+  HiOutlineStar,
+  HiOutlineBadgeCheck,
+  HiOutlineUserGroup,
+  HiOutlinePresentationChartBar,
+  HiOutlineOfficeBuilding,
+  HiOutlineMail,
+} from "react-icons/hi";
+
+import {
+  ScrollReveal,
+  StaggerContainer,
+  StaggerItem,
+} from "../UI/ScrollReveal";
+
+const TIERS = [
+  {
+    title: "Title Sponsor",
+    icon: HiOutlineSparkles,
+    image1: "/asianpaints.png",
   },
-  { 
-    label: "HI AIM 2027", 
-    href: "#",
-    dropdown: [
-      { label: "Program", href: "/about-program.html" },
-      { label: "Venue", href: "/host-hotel.html" },
-      { label: "Speakers", href: "/speakers.html" },
-      { label: "Exhibitors Profiles", href: "/exhibitor-profile.html" },
-      { label: "Sponsorship Details", href: "/sponsors.html" },
-      { label: "Exposition Layout", href: "/exposition-layout.html" },
-      { label: "Guidelines For Exhibitors", href: "/exhibitors-guidelines.html" },
-      { label: "Registration T & C", href: "/registration-t-c.html" },
-      { label: "Delegate Registration Form", href: "/booking-conference.html" },
-    ]
+  {
+    title: "Patron Sponsor",
+    icon: HiOutlineStar,
+    image1: "/aruba.png",
   },
-  { label: "GALLERY", href: "/gallery" },
-  { 
-    label: "NEWS", 
-    href: "#",
-    dropdown: [
-      { label: "Media Coverage", href: "/media-coverage.html" },
-      { label: "Press Releases", href: "/news.html" },
-    ]
+  {
+    title: "Platinum Sponsor",
+    icon: HiOutlineBadgeCheck,
+    image1: "/pidilite.png",
+    image2: "/accor.png",
+    image3: "/radisson.png",
+    image4: "/shearling.png",
+    image5: "/tfci.png",
   },
-  { 
-    label: "TESTIMONIALS", 
-    href: "#",
-    dropdown: [
-      { label: "Testimonials - 2014", href: "/testimonials-2014.html" },
-      { label: "Testimonials - 2015", href: "/testimonials-2015.html" },
-      { label: "Testimonials - 2016", href: "/testimonials-2016.html" },
-      { label: "Testimonials - 2017", href: "/testimonials.html" },
-      { label: "Testimonials - 2019", href: "/testimonials-2019.html" },
-      { label: "Testimonials - 2022", href: "/testimonials-2022.html" },
-      { label: "Testimonials - 2023", href: "/testimonials-2023.html" },
-      { label: "Testimonials - 2024", href: "/testimonials-2024.html" },
-      { label: "Testimonials - 2025", href: "/testimonials-2025.html" },
-    ]
+  {
+    title: "Gold Sponsors",
+    icon: HiOutlineUserGroup,
+    image1: "/schuco.png",
+    image2: "/atmospherecore.png",
+    image3: "/lords.png",
+    image4: "/aamir.png",
+    image5: "/hilton.png",
+    image6: "/minor.png",
+    image7: "/wood.png",
+    image8: "/greenlam.png",
+    image9: "/wong.png",
+    image10: "/stefab.png",
+    image11: "/everest.png",
+    image12: "/eclipse.png",
   },
-  { 
-    label: "ARCHIVES", 
-    href: "#",
-    dropdown: [
-      { label: "Hi Aim 2012", href: "/hiaim-2012.html" },
-      { label: "Hi Aim 2013", href: "/hiaim-2013.html" },
-      { label: "Hi Aim 2014", href: "/hiaim-2014.html" },
-      { label: "Hi Aim 2015", href: "/hiaim-2015.html" },
-      { label: "Hi Aim 2016", href: "/hiaim-2016.html" },
-      { label: "Hi Aim 2017", href: "/hiaim-2017.html" },
-      { label: "Hi Aim 2018", href: "/hiaim-2018.html" },
-      { label: "Hi Aim 2019", href: "/hiaim-2019.html" },
-      { label: "Hi Aim 2020", href: "/hiaim-2020.html" },
-      { label: "Hi Aim 2022", href: "/hiaim-2022.html" },
-      { label: "Hi AiM 2023", href: "/hiaim-2023.html" },
-      { label: "Hi AiM 2024", href: "/hiaim-2024.html" },
-      { label: "Hi AiM 2025", href: "/hiaim-2025.html" },
-      { label: "Hi AiM 2026", href: "/hiaim-2026.html" },
-    ]
-  },
-  { label: "CONTACT US", href: "/contact-us" },
 ];
 
-const Navbar = () => {
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const [sticky, setSticky] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState(null);
-  const [mobileHeight, setMobileHeight] = useState(68);
-  const dropdownTimeout = useRef(null);
-  const navRef = useRef(null);
-  const location = useLocation();
-
-  useEffect(() => {
-    const updateHeight = () => {
-      if (navRef.current) {
-        setMobileHeight(navRef.current.offsetHeight);
-      }
-    };
-    updateHeight();
-    window.addEventListener("resize", updateHeight);
-    return () => window.removeEventListener("resize", updateHeight);
-  }, []);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setSticky(window.scrollY > 40);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  useEffect(() => {
-    setMobileOpen(false);
-    setActiveDropdown(null);
-  }, [location]);
-
-  useEffect(() => {
-    document.body.style.overflow = mobileOpen ? "hidden" : "";
-  }, [mobileOpen]);
-
-  const handleMouseEnter = (label) => {
-    if (dropdownTimeout.current) clearTimeout(dropdownTimeout.current);
-    setActiveDropdown(label);
-  };
-
-  const handleMouseLeave = () => {
-    dropdownTimeout.current = setTimeout(() => {
-      setActiveDropdown(null);
-    }, 150);
-  };
-
-  const toggleMobileDropdown = (label, e) => {
-    e.preventDefault();
-    setActiveDropdown(activeDropdown === label ? null : label);
-  };
-
+const PartnersSection = () => {
   return (
-    <header
-      ref={navRef}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b ${
-        sticky
-          ? "bg-white/95 shadow-sm py-1"
-          : "backdrop-blur-md bg-white/30 py-2"
-      }`}
-    >
-      <nav className="max-w-[1400px] mx-auto px-4 lg:px-8 flex justify-between items-center">
-        
-        {/* Logo */}
-        <Link to="/" className="text-2xl font-bold">
-          <img src="/logo.png" alt="logo" />
-        </Link>
+    <section className="py-24 bg-[#f8f8f8]">
+      <div className="max-w-7xl mx-auto px-6">
+        <StaggerContainer className="flex flex-col gap-10">
+          {TIERS.map((tier, idx) => {
+            const images = Object.keys(tier)
+              .filter((key) => key.startsWith("image"))
+              .map((key) => tier[key])
+              .filter(Boolean);
 
-        {/* Desktop */}
-        <div className="hidden lg:flex items-center gap-2">
-          {NAV_LINKS.map((link) => (
-            <div
-              key={link.label}
-              onMouseEnter={() => handleMouseEnter(link.label)}
-              onMouseLeave={handleMouseLeave}
-              className="relative"
-            >
-              <a
-                href={link.href}
-                className={`px-4 py-2 rounded-md text-sm font-semibold transition-all flex items-center gap-1
-                ${
-                  link.label === "CONTACT US"
-                    ? "bg-gradient-to-r from-yellow-400 to-yellow-500 text-white shadow-md hover:scale-105"
-                    : activeDropdown === link.label
-                    ? "text-yellow-600 bg-gray-100"
-                    : "text-gray-800 hover:text-yellow-600 hover:bg-gray-100"
-                }`}
-                onClick={(e) => link.dropdown && e.preventDefault()}
-              >
-                {link.label}
-                {link.dropdown && (
-                  <HiChevronDown
-                    className={`transition ${
-                      activeDropdown === link.label ? "rotate-180" : ""
-                    }`}
-                  />
-                )}
-              </a>
+            return (
+              <StaggerItem key={idx}>
+                <div className="bg-white rounded-3xl p-8 shadow-sm hover:shadow-lg transition">
+                  
+                  <div className="flex flex-wrap items-center justify-center gap-10">
+                    {images.map((img, index) => (
+                      <img
+                        key={index}
+                        src={img}
+                        alt={tier.title}
+                        className="max-h-24 w-auto object-contain"
+                      />
+                    ))}
+                  </div>
 
-              {/* Dropdown */}
-              {link.dropdown && activeDropdown === link.label && (
-                <div className="absolute top-full left-0 bg-white shadow-lg rounded-md mt-1 w-60">
-                  {link.dropdown.map((item) => (
-                    <a
-                      key={item.label}
-                      href={item.href}
-                      className="block px-4 py-2 hover:bg-gray-100"
-                    >
-                      {item.label}
-                    </a>
-                  ))}
+                  <h3 className="text-center text-lg font-medium mt-8">
+                    {tier.title}
+                  </h3>
                 </div>
-              )}
-            </div>
-          ))}
-        </div>
-
-        {/* Mobile Toggle */}
-        <button
-          className="lg:hidden"
-          onClick={() => setMobileOpen(!mobileOpen)}
-        >
-          {mobileOpen ? <HiX size={28} /> : <HiMenu size={28} />}
-        </button>
-      </nav>
-
-      {/* Mobile Menu */}
-      <div
-        className={`lg:hidden fixed right-0 top-0 h-full w-[300px] bg-white shadow-lg transition-transform ${
-          mobileOpen ? "translate-x-0" : "translate-x-full"
-        }`}
-        style={{ top: `${mobileHeight}px` }}
-      >
-        <div className="p-4 flex flex-col gap-2">
-          {NAV_LINKS.map((link) => (
-            <div key={link.label}>
-              <div
-                className="flex justify-between items-center"
-                onClick={(e) =>
-                  link.dropdown && toggleMobileDropdown(link.label, e)
-                }
-              >
-                <a
-                  href={link.href}
-                  className={`block px-4 py-2 rounded-md font-semibold
-                  ${
-                    link.label === "CONTACT US"
-                      ? "bg-gradient-to-r from-yellow-400 to-yellow-500 text-white text-center"
-                      : "text-gray-800"
-                  }`}
-                >
-                  {link.label}
-                </a>
-                {link.dropdown && <HiChevronDown />}
-              </div>
-
-              {link.dropdown && activeDropdown === link.label && (
-                <div className="ml-4 mt-2 flex flex-col">
-                  {link.dropdown.map((item) => (
-                    <a
-                      key={item.label}
-                      href={item.href}
-                      className="py-2 text-sm text-gray-600"
-                    >
-                      {item.label}
-                    </a>
-                  ))}
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
+              </StaggerItem>
+            );
+          })}
+        </StaggerContainer>
       </div>
-    </header>
+    </section>
   );
 };
 
-export default Navbar;
-\
+export default PartnersSection;
 
 
-   <div style={{ textAlign: "center" }}>
-            <div className={`ha-fade ${isVisible ? "in" : ""} ha-d1`}>
-              <span className="ha-tag">
-                <span className="ha-tag-dot" />
-                About The Event
+
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  FiMapPin,
+  FiUser,
+  FiArrowRight,
+  FiCalendar,
+} from "react-icons/fi";
+
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+
+const scheduleData = {
+  day1: {
+    image: "/event-1.png",
+    date: "April 10, 2027",
+    title: "Opening & Future Trends",
+    shortDesc:
+      "Keynotes, panels, and breakout sessions exploring the technological shifts defining our future.",
+    events: [
+      {
+        time: "08:30 AM",
+        title: "Registration & Morning Coffee",
+        speaker: "",
+        location: "Grand Lobby",
+        description:
+          "Collect your conference materials and start networking with peers over premium coffee and pastries.",
+      },
+      {
+        time: "09:30 AM",
+        title: "Opening Keynote: The Next Decade of Innovation",
+        speaker: "",
+        location: "Main Hall",
+        description:
+          "An exploration of the technological and strategic shifts that will define the upcoming decade.",
+      },
+      {
+        time: "11:00 AM",
+        title: "Panel: Scaling Sustainable Practices",
+        speaker: "",
+        location: "Hall A",
+        description:
+          "A deep dive into integrating sustainability into core business models without compromising growth.",
+      },
+      {
+        time: "12:30 PM",
+        title: "Networking Lunch",
+        speaker: "",
+        location: "Dining Pavilion",
+        description:
+          "A curated dining experience designed to foster meaningful conversations.",
+      },
+      {
+        time: "02:00 PM",
+        title: "Breakout Sessions",
+        speaker: "",
+        location: "Rooms 101-105",
+        description:
+          "Choose from 5 specialized tracks covering AI, Design, Leadership, Engineering, and Growth.",
+      },
+      {
+        time: "04:30 PM",
+        title: "Fireside Chat",
+        speaker: "",
+        location: "Main Hall",
+        description:
+          "An intimate conversation on navigating industry disruptions.",
+      },
+    ],
+  },
+
+  day2: {
+    image: "/event-2.png",
+    date: "April 11, 2027",
+    title: "Deep Dives & Execution",
+    shortDesc:
+      "Masterclasses and interactive workshops translating high-level strategy into daily execution.",
+    events: [
+      {
+        time: "09:00 AM",
+        title: "Morning Address",
+        speaker: "",
+        location: "Main Hall",
+        description:
+          "Translating high-level strategy into actionable daily execution.",
+      },
+      {
+        time: "10:00 AM",
+        title: "Masterclass: Design Systems at Scale",
+        speaker: "",
+        location: "Hall B",
+        description:
+          "Interactive session on building resilient and scalable design systems for enterprise.",
+      },
+      {
+        time: "11:30 AM",
+        title: "Case Studies Showcase",
+        speaker: "",
+        location: "Hall A",
+        description:
+          "Real-world examples of successful transformations and the lessons learned.",
+      },
+      {
+        time: "01:00 PM",
+        title: "Lunch Break",
+        speaker: "",
+        location: "Dining Pavilion",
+        description: "Relax and recharge with a gourmet lunch.",
+      },
+      {
+        time: "02:30 PM",
+        title: "Interactive Workshops",
+        speaker: "",
+        location: "Workshop Wing",
+        description:
+          "Hands-on sessions focused on practical skills and tool mastery.",
+      },
+      {
+        time: "04:30 PM",
+        title: "Closing Remarks & Reception",
+        speaker: "",
+        location: "Grand Lobby",
+        description:
+          "Wrapping up the conference and celebrating achievements with a premium cocktail reception.",
+      },
+    ],
+  },
+};
+
+const Program = () => {
+  const [selectedDay, setSelectedDay] = useState("day1");
+
+  return (
+    <>
+      <Navbar />
+
+      <section className="min-h-screen bg-[#FDFDFD] text-slate-900 py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        <div className="max-w-6xl mx-auto">
+          {/* Heading */}
+          <div className="text-center mb-20">
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="mb-3 sm:mb-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-gray-900"
+            >
+              Conference{" "}
+              <span className="font-bold bg-clip-text text-transparent bg-gradient-to-r from-gold to-gold-dark">
+                Program
               </span>
-            </div>
+            </motion.h1>
 
-            <h2 className={`ha-h2 ha-fade ${isVisible ? "in" : ""} ha-d2`}>
-              Who should <em>attend?</em>
-            </h2>
-
-            <div className={`ha-fade ${isVisible ? "in" : ""} ha-d2`}>
-              <div className="ha-rule">
-                <div className="ha-rule-line" />
-                <div className="ha-rule-diamond" />
-                <div className="ha-rule-line" />
-              </div>
-            </div>
-
-            <p className={`ha-body ha-fade ${isVisible ? "in" : ""} ha-d3`}>
-              HI-AIM brings together the brightest minds in hospitality — from seasoned
-              executives to emerging innovators — for two days of learning, connection, and growth.
-            </p>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="text-xl pt-2 text-slate-900 max-w-2xl mx-auto font-light leading-relaxed"
+            >
+              Join us for two days of insightful keynotes, interactive panels,
+              and unparalleled networking opportunities designed to elevate your
+              expertise.
+            </motion.p>
           </div>
+
+          {/* Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {Object.entries(scheduleData).map(([key, dayData], index) => (
+              <motion.div
+                key={key}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.15 }}
+                onClick={() => {
+                  setSelectedDay(key);
+                  document.getElementById('schedule-details')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }}
+                className={`relative h-[32rem] rounded-[2rem] overflow-hidden cursor-pointer group transition-all duration-500 ${selectedDay === key ? 'ring-4 ring-gold ring-offset-4 ring-offset-[#FDFDFD]' : ''}`}
+              >
+                {/* Overlay */}
+                <div className={`absolute inset-0 transition-all duration-300 ${selectedDay === key ? 'bg-black/40' : 'bg-black/60 group-hover:bg-black/50'}`}></div>
+
+                {/* Glow */}
+                <div className={`absolute top-0 right-0 w-40 h-40 rounded-full blur-3xl transition-all duration-700 ${selectedDay === key ? 'bg-gold/40 scale-150' : 'bg-gold/20 opacity-70 group-hover:scale-150'}`}></div>
+
+                {/* Content */}
+                <div className="relative z-10 h-full p-8 flex flex-col text-white">
+                  {/* Top */}
+                  <div className="flex items-center justify-between mb-8">
+                    <span className="px-6 py-2 bg-gradient-to-r from-gold to-gold-dark text-brand-950 rounded-full text-lg font-semibold">
+                      {key === "day1" ? "Day 1" : "Day 2"}
+                    </span>
+
+                    <span className="flex items-center text-white/90 text-sm font-medium">
+                      <FiCalendar className="mr-2" />
+                      {dayData.date}
+                    </span>
+                  </div>
+
+                  {/* Title */}
+                  <h2 className="text-3xl md:text-4xl font-semibold leading-tight mb-5">
+                    {dayData.title}
+                  </h2>
+
+                  {/* Description */}
+                  <p className="text-white/80 text-lg leading-relaxed flex-grow">
+                    {dayData.shortDesc}
+                  </p>
+
+                  {/* Button */}
+                  <div className="flex items-center text-lg font-medium mt-10 group-hover:gap-3 transition-all duration-300">
+                    <span>{selectedDay === key ? "Currently Viewing" : "View Full Schedule"}</span>
+                    {selectedDay !== key && <FiArrowRight className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />}
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* Schedule Details Section */}
+        <div id="schedule-details" className="max-w-5xl mx-auto mt-24 scroll-mt-24">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={selectedDay}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -30 }}
+              transition={{ duration: 0.4 }}
+              className="bg-white rounded-[2rem] shadow-xl p-8 md:p-12 lg:p-16 border border-slate-100"
+            >
+              {/* Header */}
+              <div className="mb-12 border-b border-slate-100 pb-8 flex flex-col md:flex-row md:items-end justify-between gap-6">
+                <div>
+                  <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium text-slate-900 tracking-tight">
+                    {scheduleData[selectedDay].title}
+                  </h2>
+
+                  <p className="text-slate-500 mt-4 flex items-center text-lg">
+                    <span className="font-medium mr-3 text-gold-dark px-4 py-1 bg-gold/10 rounded-full">
+                      {selectedDay === "day1" ? "Day 1" : "Day 2"}
+                    </span>
+                    {scheduleData[selectedDay].date}
+                  </p>
+                </div>
+              </div>
+
+              {/* Timeline */}
+              <div className="relative">
+                <div className="space-y-0 relative before:absolute before:inset-y-0 before:left-[11px] md:before:left-[135px] before:w-[2px] before:bg-slate-100">
+                  {scheduleData[selectedDay].events.map((event, index) => (
+                    <div
+                      key={index}
+                      className="relative flex flex-col md:flex-row gap-6 md:gap-16 group pt-8 first:pt-2 pb-8 border-b border-slate-50 last:border-0 last:pb-0"
+                    >
+                      {/* Dot */}
+                      <div className="absolute left-[8px] md:left-[132px] top-10 md:top-3 w-[8px] h-[8px] rounded-full bg-slate-300 group-hover:bg-gold transition-all duration-300 z-10 group-hover:shadow-[0_0_10px_rgba(212,175,55,0.5)]"></div>
+
+                      {/* Time */}
+                      <div className="pl-8 md:pl-0 md:w-28 flex-shrink-0 pt-1 md:-mt-1">
+                        <span className="inline-block px-4 py-1.5 rounded-lg bg-slate-50 text-slate-700 text-sm font-medium border border-slate-100 group-hover:border-gold/30 group-hover:bg-gold/5 transition-colors">
+                          {event.time}
+                        </span>
+                      </div>
+
+                      {/* Content */}
+                      <div className="flex-grow pl-8 md:pl-0">
+                        <h3 className="text-xl md:text-2xl font-medium text-slate-900 mb-3 group-hover:text-gold-dark transition-colors">
+                          {event.title}
+                        </h3>
+
+                        <div className="flex flex-wrap gap-x-6 gap-y-3 mb-4">
+                          {event.speaker && (
+                            <div className="flex items-center text-sm md:text-base text-slate-600 bg-slate-50 px-3 py-1 rounded-md">
+                              <FiUser className="mr-2 text-gold" />
+                              {event.speaker}
+                            </div>
+                          )}
+
+                          {event.location && (
+                            <div className="flex items-center text-sm md:text-base text-slate-600 bg-slate-50 px-3 py-1 rounded-md">
+                              <FiMapPin className="mr-2 text-gold" />
+                              {event.location}
+                            </div>
+                          )}
+                        </div>
+
+                        <p className="text-slate-600 leading-relaxed font-light text-base md:text-lg">
+                          {event.description}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+      </section>
+
+      <Footer />
+    </>
+  );
+};
+
+export default Program;
+
+
+ {event.speaker && (
+                        <div className="flex items-start gap-3">
+
+                          <FiUser className="mt-1 text-slate-400 shrink-0" />
+
+                          <div className="space-y-3">
+                            {event.speaker.map((person, i) => (
+                              <p
+                                key={i}
+                                className="text-sm md:text-base text-slate-600 leading-relaxed border-b border-slate-100 pb-3 last:border-0"
+                              >
+                                {person}
+                              </p>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+
+
+
+                       speaker: [
+          "Mr. Romesh Koul - CEO - Naaz Hotel Consultants Private Limited - Moderator",
+
+          "Mr. Anoop Bali - Managing Director - Tourism Finance Corporation of India Limited",
+
+          "Mr. Dhruva Rathore - Vice President - Real Estate & Development - Hyatt Hotels & Resorts",
+
+          "Mr. Jaideep Anand - Vice President Development and Pre Opening - The Leela Palaces, Hotels and Resorts",
+
+          "Ms. Ranju Alex - CEO, India & South Asia - Accor Hotels",
+
+          "Mr. Zubin Saxena - SVP & Regional Head - South Asia - Hilton Hotels",
+        ],
+
+
+
+ Featured{" "}
+              <span className="font-bold bg-clip-text text-transparent bg-gradient-to-r from-gold to-gold-dark">
+                Speakers
+              </span>
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="text-xl pt-2 text-slate-900 max-w-2xl mx-auto font-light leading-relaxed"
+            >
+              Learn from industry pioneers, thought leaders, and technical
+              experts who are shaping the future of enterprise technology.
+

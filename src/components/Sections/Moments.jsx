@@ -21,7 +21,7 @@ const Moments = () => {
     <section className="relative overflow-hidden bg-white border-t border-gray-100 py-16 sm:py-20 md:py-24">
       
       {/* Background Text */}
-      <div className="hidden md:block absolute left-1/2 -translate-x-1/2 -top-10 text-transparent [-webkit-text-stroke:2px_#F0F0F0] text-[10rem] lg:text-[16rem] font-bold">
+      <div className="hidden md:block absolute left-1/2 -translate-x-1/2 -top-10 text-transparent [-webkit-text-stroke:2px_#F0F0F0] text-[19rem] lg:text-[16rem] font-bold">
         Moments
       </div>
 

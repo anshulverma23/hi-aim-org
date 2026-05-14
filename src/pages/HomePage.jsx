@@ -2,10 +2,10 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Hero from "../components/Hero";
 import AboutSection from "../components/Sections/AboutSection";
-import PartnersSection from "../components/Sections/PartnersSection";
 import TestimonialsSection from "../components/Sections/TestimonialsSection";
 import WhyShouldAttend from "../components/Sections/WhyShouldAttend";
 import Moments from "../components/Sections/Moments";
+import Sponsors from "../components/Sections/Sponsors";
 
 const HomePage = () => (
   <div className="bg-white min-h-screen flex flex-col">
@@ -16,7 +16,7 @@ const HomePage = () => (
       <Moments />
       <WhyShouldAttend />  
       <TestimonialsSection />
-      <PartnersSection />
+      <Sponsors />
     </main>
     <Footer />      
   </div>
